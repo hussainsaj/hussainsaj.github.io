@@ -1,9 +1,12 @@
+//import About from './about';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             cover: true,
-            rotation: 0
+            rotation: 0,
+            tab: 'home'
         };
         this.coverValues = {
             true: {
@@ -40,9 +43,7 @@ class App extends React.Component {
                     </div>
                 </nav>
                 <main>
-                    <div id='content'>
-                        <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
-                        <h2>(Full site coming soon)</h2>
+                    <div id={this.state.tab}>
                     </div>
                     <div id='background'>
                         <picture>
@@ -76,5 +77,4 @@ class App extends React.Component {
     }
 }
 
-const domContainer = document.querySelector('main')
 ReactDOM.render(<App />, document.getElementById('root'))
