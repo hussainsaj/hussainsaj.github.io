@@ -17,7 +17,7 @@ h2 {
     font-size: 18px;
 }
 
-.text {
+p {
     font-size: 14px;
 }
 
@@ -31,9 +31,66 @@ a {
     text-decoration: none;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.transision {
+    transition: 0.2s;
+}
+
+.absolute {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 
-nav {
+#logo {
+    width: 90%;
+    padding: 10px 0;
+}
+
+nav div {
+    width: 90%;
+    padding: 5px 0;
+}
+
+nav div a {
+    color: rgba(0,0,0,0.6)
+}
+
+.active {
+    color: black;
+}
+
+#menu-button {
+    width: 10%;
+}
+
+/*img {
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}*/
+
+/*#background {
+    position: fixed;
+    object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
+}*/
+
+/*#background-text {
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    transform: translate(0, -100%);
+}*/
+
+
+/*nav {
     padding-bottom: 10px;
 }
 
@@ -139,4 +196,4 @@ img {
     #contact ul li {
         width: 350px;
     }
-}
+}*/
