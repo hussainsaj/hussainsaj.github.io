@@ -121,18 +121,18 @@ var App = function (_React$Component) {
                             var display = _this3.state.menu ? _this3.state.tab : value;
                             var navLink = React.createElement(
                                 'div',
-                                null,
+                                { className: 'nav-item nav-link', onClick: function onClick() {
+                                        return _this3.setState({ tab: display, menu: !_this3.state.menu });
+                                    } },
                                 React.createElement(
                                     'a',
-                                    { className: display === _this3.state.tab ? 'active' : '', onClick: function onClick() {
-                                            return _this3.setState({ tab: display, menu: !_this3.state.menu });
-                                        } },
+                                    { className: display === _this3.state.tab ? 'active' : '' },
                                     display
                                 )
                             );
                             var navButton = React.createElement(
                                 'div',
-                                { id: 'menu-button' },
+                                { id: 'nav-button', className: 'nav-item' },
                                 _this3.state.menu ? React.createElement('i', { className: 'fas fa-sort-down' }) : React.createElement('i', { className: 'fas fa-sort-up' })
                             );
                             if (_this3.state.menu && i === 0) {

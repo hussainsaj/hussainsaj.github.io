@@ -60,20 +60,23 @@ title {
     width: 90%;
 }
 
-nav div {
-    width: 90%;
-    padding: 5px 0;
+.nav-item {
+    padding: 10px 0;
 }
 
-nav div a {
+.nav-link {
+    width: 90%;
+}
+
+.nav-link a {
     color: rgba(0,0,0,0.6)
 }
 
-.active {
+.nav-link .active {
     color: black;
 }
 
-#menu-button {
+#nav-button {
     width: 10%;
 }
 

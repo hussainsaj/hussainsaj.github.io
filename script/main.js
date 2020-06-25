@@ -82,10 +82,10 @@ class App extends React.Component {
                     <nav className='flex' onClick={() => this.setState({menu: !this.state.menu})}>
                         {this.tabs.map((value, i)=>{
                             const display = this.state.menu ? this.state.tab : value
-                            const navLink = <div>
-                                    <a className={display===this.state.tab ? 'active' : ''} onClick={() => this.setState({tab: display, menu:!this.state.menu})}>{display}</a>
+                            const navLink = <div className='nav-item nav-link' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
+                                    <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
                                 </div>
-                            const navButton = <div id='menu-button'>
+                            const navButton = <div id='nav-button' className='nav-item'>
                                     {this.state.menu ? <i className="fas fa-sort-down"></i> : <i className="fas fa-sort-up"></i>}
                                 </div>
                             if (this.state.menu && i===0) {
