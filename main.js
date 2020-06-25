@@ -114,7 +114,9 @@ var App = function (_React$Component) {
                     ),
                     React.createElement(
                         'nav',
-                        { className: 'flex' },
+                        { className: 'flex', onClick: function onClick() {
+                                return _this3.setState({ menu: !_this3.state.menu });
+                            } },
                         this.tabs.map(function (value, i) {
                             var display = _this3.state.menu ? _this3.state.tab : value;
                             var navLink = React.createElement(
@@ -130,9 +132,7 @@ var App = function (_React$Component) {
                             );
                             var navButton = React.createElement(
                                 'div',
-                                { id: 'menu-button', onClick: function onClick() {
-                                        return _this3.setState({ menu: !_this3.state.menu });
-                                    } },
+                                { id: 'menu-button' },
                                 _this3.state.menu ? React.createElement('i', { className: 'fas fa-sort-down' }) : React.createElement('i', { className: 'fas fa-sort-up' })
                             );
                             if (_this3.state.menu && i === 0) {
@@ -154,14 +154,18 @@ var App = function (_React$Component) {
                         'div',
                         { id: 'content' },
                         React.createElement(
-                            'h2',
-                            null,
-                            'I help build websites with forward-thinking teams that generate positive and lasting value.'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            '(Full site coming soon)'
+                            'div',
+                            { className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'I help build websites with forward-thinking teams that generate positive and lasting value.'
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                '(Full site coming soon)'
+                            )
                         )
                     ),
                     this.state.tab === 'projects' && React.createElement(
@@ -196,61 +200,77 @@ var App = function (_React$Component) {
                                 );
                             })
                         ) : React.createElement(
-                            'p',
-                            null,
-                            'Error loading results. Please try again later'
+                            'div',
+                            { className: 'entry' },
+                            React.createElement(
+                                'p',
+                                null,
+                                'Error loading results. Please try again later'
+                            )
                         ),
                         React.createElement('hr', null),
                         React.createElement(
-                            'h2',
-                            null,
-                            'All of my projects'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
+                            'div',
+                            { className: 'entry' },
                             React.createElement(
-                                'a',
-                                { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
-                                'GitHub'
+                                'h2',
+                                null,
+                                'All of my projects'
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
+                                    'GitHub'
+                                )
                             )
                         )
                     ),
                     this.state.tab === 'about' && React.createElement(
                         'div',
-                        null,
+                        { className: 'content' },
                         React.createElement(
-                            'h2',
-                            null,
-                            'About me'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                            'div',
+                            { className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'About me'
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                            )
                         ),
                         React.createElement('hr', null),
                         React.createElement(
-                            'h2',
-                            null,
-                            'Feel free to say hello!'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
+                            'div',
+                            { className: 'entry' },
                             React.createElement(
-                                'a',
-                                { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
-                                'LinkedIn'
-                            )
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
+                                'h2',
+                                null,
+                                'Feel free to say hello!'
+                            ),
                             React.createElement(
-                                'a',
-                                { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
-                                'hussain-sajid@outlook.com'
+                                'p',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
+                                    'LinkedIn'
+                                )
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
+                                    'hussain-sajid@outlook.com'
+                                )
                             )
                         )
                     )
