@@ -1,16 +1,20 @@
-//import About from './about';
-
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             cover: false, //true
             rotation: 0,
-            tab: 'home',
-            menu: true
+            tab: 'home', //home
+            menu: true,
+            github: {
+                status: true,
+                projects: []
+            }
         };
+        this.formatDateTime = this.formatDateTime.bind(this);
         this.updateProjects = this.updateProjects.bind(this);
-        this.tabs = ['home','blog','projects','about'] 
+        this.updateBlog = this.updateBlog.bind(this);
+        this.tabs = ['home','projects','about'] //['home','blog','projects','about']
         this.coverValues = {
             true: {
                 color: 'white',
@@ -23,12 +27,44 @@ class App extends React.Component {
         }
     }
 
-    updateProjects() {
-        
+    formatDateTime(dateTime) {
+        const date = new Date(dateTime);
+        let dd = date.getDate();
+        let mm = date.getMonth()+1; 
+        let yyyy = date.getFullYear();
+        if(dd < 10) {dd = '0' + dd}
+        if(mm < 10) {mm = '0' + mm}
+        return `${dd}/${mm}/${yyyy}`
     }
 
-    componentDidUpdate() {
+    updateProjects() {
+        fetch("https://api.github.com/users/hussainsaj/repos")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                result.sort((a,b) => {
+                    return new Date(b.updated_at) - new Date(a.updated_at)
+                })
+                result = result.slice(0, 5);
+                for (let i=0; i<result.length; i++) {
+                    result[i].updated_at_formatted = this.formatDateTime(result[i].updated_at)
+                }
+                this.setState({github:{status: true, projects: result}}) 
+            },
+            (error) => {
+                this.setState({github:{status: false, projects: []}})
+                console.error(error)
+            }
+        )
+    }
 
+    updateBlog() {
+
+    }
+
+    componentDidMount() {
+        this.updateProjects()
+        this.updateBlog()
     }
 
     render() {
@@ -39,9 +75,9 @@ class App extends React.Component {
                         <div id='logo'>
                             <h1 onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
                         </div>
-                        <div id='cross' className='transision' style={{transform: 'rotate(' + this.state.rotation + 'deg)'}}>
+                        {/*<div id='cross' className='transision' style={{transform: 'rotate(' + this.state.rotation + 'deg)'}}>
                             <h1 onClick={() => this.setState({cover: !this.state.cover, rotation: this.state.rotation + 45, tab: 'home'})}>+</h1>
-                        </div>
+                        </div>*/}
                     </title>
                     <nav className='flex'>
                         {this.tabs.map((value, i)=>{
@@ -85,22 +121,32 @@ class App extends React.Component {
                         <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
                         <p>(Full site coming soon)</p>
                     </div>}
-                    {this.state.tab === 'blog' && <div>
+                    {/*this.state.tab === 'blog' && <div>
                         <p>Blog coming soon</p>
-                        <br/>
+                        <hr/>
                         <h2>All of my blogs</h2>
                         <p><a className='text' href='https://medium.com/@joyful_inchworm_butterfly_535' rel='noopener' target='_blank'>Medium</a></p>
-                    </div>}
+                    </div>*/}
                     {this.state.tab === 'projects' && <div>
-                        <p>Projects coming soon</p>
-                        <br/>
+                        {this.state.github.status ? <div className='content'>
+                            {this.state.github.projects.map(project => {
+                                return <div className='entry'>
+                                    <h2><a className='text' href={project.html_url} rel='noopener' target='_blank'>{project.name}</a></h2>
+                                    <p>{project.description}</p>
+                                    <p>{project.updated_at_formatted}</p>
+                                </div>
+                            })}
+                        </div>
+                         : 
+                        <p>Error loading results. Please try again later</p>}
+                        <hr/>
                         <h2>All of my projects</h2>
                         <p><a className='text' href='https://github.com/hussainsaj' rel='noopener' target='_blank'>GitHub</a></p>
                     </div>}
                     {this.state.tab === 'about' && <div>
                         <h2>About me</h2>
                         <p>I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
-                        <br/>
+                        <hr/>
                         <h2>Feel free to say hello!</h2>
                         <p><a className='text' href='https://www.linkedin.com/in/hussainsaj/' rel='noopener' target='_blank'>LinkedIn</a></p>
                         <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>

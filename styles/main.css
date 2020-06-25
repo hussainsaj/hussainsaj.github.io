@@ -28,7 +28,11 @@ ul {
 
 a {
     color: black;
-    text-decoration: none;
+    /*text-decoration: none;*/
+}
+
+hr {
+    margin: 30px 0;
 }
 
 .flex {
@@ -45,13 +49,15 @@ a {
 }
 
 main {
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
+title {
+    padding: 10px 0;
+}
 
 #logo {
     width: 90%;
-    padding: 10px 0;
 }
 
 nav div {
@@ -69,6 +75,10 @@ nav div a {
 
 #menu-button {
     width: 10%;
+}
+
+.entry {
+    padding: 10px 0;
 }
 
 /*#background {
