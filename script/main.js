@@ -62,6 +62,9 @@ class App extends React.Component {
                 result = result.slice(0, 5);
                 for (let i=0; i<result.length; i++) {
                     result[i].updated_at_formatted = this.formatDateTime(result[i].updated_at)
+                    if (result[i].description.length > 160) {
+                        result[i].description = result[i].description.slice(0,150) + '...'
+                    }
                 }
 
                 this.setState({github:{status: true, author: result[0].owner, projects: result}})
@@ -150,7 +153,7 @@ class App extends React.Component {
                         </div>}
                     </div>*/}
                     {this.state.tab === 'home' && <div id='content'>
-                        <div className='entry'>
+                        <div className='entry text'>
                             <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
                             <p>(Full site coming soon)</p>
                         </div>
@@ -158,7 +161,7 @@ class App extends React.Component {
                     {this.state.tab === 'blog' && <div className='content'>
                         {this.state.medium.status ? <div>
                             {this.state.medium.blogs.map(blog => {
-                                return <div className='entry'>
+                                return <div className='entry text'>
                                     <h2><a className='text' href={blog.link} rel='noopener' target='_blank'>{blog.title}</a></h2>
                                     <p>{blog.content}</p>
                                     <p>{blog.date}</p>
@@ -175,7 +178,7 @@ class App extends React.Component {
                         </div>
                          : 
                         <div>
-                            <div className='entry'>
+                            <div className='entry text'>
                                 <p>Error loading results. Please try again later</p>
                             </div>
                             <hr/>
@@ -188,7 +191,7 @@ class App extends React.Component {
                     {this.state.tab === 'projects' && <div className='content'>
                         {this.state.github.status ? <div>
                             {this.state.github.projects.map(project => {
-                                return <div className='entry'>
+                                return <div className='entry text'>
                                     <h2><a className='text' href={project.html_url} rel='noopener' target='_blank'>{project.name}</a></h2>
                                     <p>{project.description}</p>
                                     <p>{project.updated_at_formatted}</p>
@@ -205,7 +208,7 @@ class App extends React.Component {
                         </div>
                          : 
                         <div>
-                            <div className='entry'>
+                            <div className='entry text'>
                                 <p>Error loading results. Please try again later</p>
                             </div>
                             <hr/>
@@ -216,7 +219,7 @@ class App extends React.Component {
                         </div>}
                     </div>}
                     {this.state.tab === 'about' && <div className='content'>
-                        <div id='about' className='entry'>
+                        <div className='entry text'>
                             <h2>About me</h2>
                             <p>I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
                         </div>

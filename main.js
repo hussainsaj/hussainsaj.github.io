@@ -85,6 +85,9 @@ var App = function (_React$Component) {
                 result = result.slice(0, 5);
                 for (var i = 0; i < result.length; i++) {
                     result[i].updated_at_formatted = _this2.formatDateTime(result[i].updated_at);
+                    if (result[i].description.length > 160) {
+                        result[i].description = result[i].description.slice(0, 150) + '...';
+                    }
                 }
 
                 _this2.setState({ github: { status: true, author: result[0].owner, projects: result } });
@@ -189,7 +192,7 @@ var App = function (_React$Component) {
                         { id: 'content' },
                         React.createElement(
                             'div',
-                            { className: 'entry' },
+                            { className: 'entry text' },
                             React.createElement(
                                 'h2',
                                 null,
@@ -211,7 +214,7 @@ var App = function (_React$Component) {
                             this.state.medium.blogs.map(function (blog) {
                                 return React.createElement(
                                     'div',
-                                    { className: 'entry' },
+                                    { className: 'entry text' },
                                     React.createElement(
                                         'h2',
                                         null,
@@ -262,7 +265,7 @@ var App = function (_React$Component) {
                             null,
                             React.createElement(
                                 'div',
-                                { className: 'entry' },
+                                { className: 'entry text' },
                                 React.createElement(
                                     'p',
                                     null,
@@ -299,7 +302,7 @@ var App = function (_React$Component) {
                             this.state.github.projects.map(function (project) {
                                 return React.createElement(
                                     'div',
-                                    { className: 'entry' },
+                                    { className: 'entry text' },
                                     React.createElement(
                                         'h2',
                                         null,
@@ -350,7 +353,7 @@ var App = function (_React$Component) {
                             null,
                             React.createElement(
                                 'div',
-                                { className: 'entry' },
+                                { className: 'entry text' },
                                 React.createElement(
                                     'p',
                                     null,
@@ -383,7 +386,7 @@ var App = function (_React$Component) {
                         { className: 'content' },
                         React.createElement(
                             'div',
-                            { id: 'about', className: 'entry' },
+                            { className: 'entry text' },
                             React.createElement(
                                 'h2',
                                 null,
