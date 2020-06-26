@@ -17,7 +17,7 @@ var App = function (_React$Component) {
         _this.state = {
             cover: false, //true
             rotation: 0,
-            tab: 'home', //home
+            tab: 'about', //home
             menu: true,
             github: {
                 status: true,
@@ -233,7 +233,29 @@ var App = function (_React$Component) {
                         { className: 'content' },
                         React.createElement(
                             'div',
-                            { className: 'entry' },
+                            { id: 'contact', className: 'flex' },
+                            React.createElement(
+                                'p',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
+                                    'LinkedIn'
+                                )
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
+                                    'hussain-sajid@outlook.com'
+                                )
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { id: 'about', className: 'entry' },
                             React.createElement(
                                 'h2',
                                 null,
@@ -252,24 +274,152 @@ var App = function (_React$Component) {
                             React.createElement(
                                 'h2',
                                 null,
-                                'Feel free to say hello!'
+                                'Employment history'
                             ),
                             React.createElement(
-                                'p',
+                                'table',
                                 null,
                                 React.createElement(
-                                    'a',
-                                    { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
-                                    'LinkedIn'
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '05/2020-Present'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Qwest Services'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Senior Digital Development Analyst'
+                                    )
+                                ),
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '09/2018-05/2020'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Qwest Services'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Web developer'
+                                    )
                                 )
+                            )
+                        ),
+                        React.createElement('hr', null),
+                        React.createElement(
+                            'div',
+                            { className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'Recognitions'
                             ),
                             React.createElement(
-                                'p',
+                                'table',
                                 null,
                                 React.createElement(
-                                    'a',
-                                    { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
-                                    'hussain-sajid@outlook.com'
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '2019'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'DXA\'19'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Best Digital Change & Transformation - Shortlisted'
+                                    )
+                                ),
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '2018'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Qwest Services'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Best team'
+                                    )
+                                )
+                            )
+                        ),
+                        React.createElement('hr', null),
+                        React.createElement(
+                            'div',
+                            { className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'Education history'
+                            ),
+                            React.createElement(
+                                'table',
+                                null,
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '09/2017-08/2018'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Udacity'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'Front-end Web Developer Nanodegree Program'
+                                    )
+                                ),
+                                React.createElement(
+                                    'tr',
+                                    null,
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        '09/2015-06/2018'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'City of Stoke-on-Trent Sixth Form Collecge'
+                                    ),
+                                    React.createElement(
+                                        'td',
+                                        null,
+                                        'A-level Physics/Maths/Computer Science'
+                                    )
                                 )
                             )
                         )

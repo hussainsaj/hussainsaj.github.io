@@ -21,6 +21,17 @@ p {
     font-size: 14px;
 }
 
+table {
+    padding: 10px 0;
+}
+
+td {
+    font-size: 12px;
+    width: 30%;
+    vertical-align: top;
+    padding: 5px;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -28,7 +39,6 @@ ul {
 
 a {
     color: black;
-    /*text-decoration: none;*/
 }
 
 hr {
@@ -86,6 +96,18 @@ main {
 
 .entry {
     padding: 10px 0;
+}
+
+#contact {
+    padding-bottom: 10px;
+}
+
+#contact p {
+    padding: 0 10px;
+}
+
+#about {
+    width: 80%;
 }
 
 /*#background {

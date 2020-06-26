@@ -4,7 +4,7 @@ class App extends React.Component {
         this.state = {
             cover: false, //true
             rotation: 0,
-            tab: 'home', //home
+            tab: 'about', //home
             menu: true,
             github: {
                 status: true,
@@ -154,15 +154,61 @@ class App extends React.Component {
                         </div>
                     </div>}
                     {this.state.tab === 'about' && <div className='content'>
-                        <div className='entry'>
+                        <div id='contact' className='flex'>
+                            <p><a className='text' href='https://www.linkedin.com/in/hussainsaj/' rel='noopener' target='_blank'>LinkedIn</a></p>
+                            <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>
+                        </div>
+                        <div id='about' className='entry'>
                             <h2>About me</h2>
                             <p>I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
                         </div>
                         <hr/>
                         <div className='entry'>
-                            <h2>Feel free to say hello!</h2>
-                            <p><a className='text' href='https://www.linkedin.com/in/hussainsaj/' rel='noopener' target='_blank'>LinkedIn</a></p>
-                            <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>
+                            <h2>Employment history</h2>
+                            <table>
+                                <tr>
+                                    <td>05/2020-Present</td>
+                                    <td>Qwest Services</td>
+                                    <td>Senior Digital Development Analyst</td>
+                                </tr>
+                                <tr>
+                                    <td>09/2018-05/2020</td>
+                                    <td>Qwest Services</td>
+                                    <td>Web developer</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr/>
+                        <div className='entry'>
+                            <h2>Recognitions</h2>
+                            <table>
+                                <tr>
+                                    <td>2019</td>
+                                    <td>DXA'19</td>
+                                    <td>Best Digital Change & Transformation - Shortlisted</td>
+                                </tr>
+                                <tr>
+                                    <td>2018</td>
+                                    <td>Qwest Services</td>
+                                    <td>Best team</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <hr/>
+                        <div className='entry'>
+                            <h2>Education history</h2>
+                            <table>
+                                <tr>
+                                    <td>09/2017-08/2018</td>
+                                    <td>Udacity</td>
+                                    <td>Front-end Web Developer Nanodegree Program</td>
+                                </tr>
+                                <tr>
+                                    <td>09/2015-06/2018</td>
+                                    <td>City of Stoke-on-Trent Sixth Form Collecge</td>
+                                    <td>A-level Physics/Maths/Computer Science</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>}
                 </main>
