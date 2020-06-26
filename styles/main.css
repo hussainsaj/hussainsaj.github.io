@@ -17,7 +17,7 @@ h2 {
     font-size: 18px;
 }
 
-p {
+p, li {
     font-size: 14px;
 }
 
@@ -56,6 +56,10 @@ hr {
 
 .absolute {
     position: absolute;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 main {

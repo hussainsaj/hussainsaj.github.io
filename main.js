@@ -105,7 +105,7 @@ var App = function (_React$Component) {
                             { id: 'logo' },
                             React.createElement(
                                 'h1',
-                                { onClick: function onClick() {
+                                { className: 'pointer', onClick: function onClick() {
                                         return _this3.setState({ tab: 'home' });
                                     } },
                                 'Hussain Sajid'
@@ -114,7 +114,7 @@ var App = function (_React$Component) {
                     ),
                     React.createElement(
                         'nav',
-                        { className: 'flex', onClick: function onClick() {
+                        { className: 'flex pointer', onClick: function onClick() {
                                 return _this3.setState({ menu: !_this3.state.menu });
                             } },
                         this.tabs.map(function (value, i) {
@@ -275,6 +275,25 @@ var App = function (_React$Component) {
                                 'h2',
                                 null,
                                 'Key skills'
+                            ),
+                            React.createElement(
+                                'ul',
+                                { className: 'flex' },
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'Scrum'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'Agile Methodologies'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'Responsive Web Design'
+                                )
                             ),
                             React.createElement(
                                 'ul',

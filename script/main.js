@@ -73,13 +73,13 @@ class App extends React.Component {
                 {!this.state.cover && <header>
                     <title className='flex'>
                         <div id='logo'>
-                            <h1 onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
+                            <h1 className='pointer' onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
                         </div>
                         {/*<div id='cross' className='transision' style={{transform: 'rotate(' + this.state.rotation + 'deg)'}}>
                             <h1 onClick={() => this.setState({cover: !this.state.cover, rotation: this.state.rotation + 45, tab: 'home'})}>+</h1>
                         </div>*/}
                     </title>
-                    <nav className='flex' onClick={() => this.setState({menu: !this.state.menu})}>
+                    <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
                         {this.tabs.map((value, i)=>{
                             const display = this.state.menu ? this.state.tab : value
                             const navLink = <div className='nav-item nav-link' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
@@ -165,6 +165,11 @@ class App extends React.Component {
                         <hr/>
                         <div id='skills' className='entry'>
                             <h2>Key skills</h2>
+                            <ul className='flex'>
+                                <li>Scrum</li>
+                                <li>Agile Methodologies</li>
+                                <li>Responsive Web Design</li>
+                            </ul>
                             <ul className='flex'>
                                 <li>HTML</li>
                                 <li>CSS</li>
