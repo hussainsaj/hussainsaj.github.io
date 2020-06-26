@@ -110,6 +110,10 @@ main {
     width: 80%;
 }
 
+#skills li {
+    margin: 5px 10px;
+}
+
 /*#background {
     left: 0;
     top: 0;

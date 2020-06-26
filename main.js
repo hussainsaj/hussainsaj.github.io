@@ -270,6 +270,55 @@ var App = function (_React$Component) {
                         React.createElement('hr', null),
                         React.createElement(
                             'div',
+                            { id: 'skills', className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'Key skills'
+                            ),
+                            React.createElement(
+                                'ul',
+                                { className: 'flex' },
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'HTML'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'CSS'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'JavaScript'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'React'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'jQuery'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'SQL server'
+                                ),
+                                React.createElement(
+                                    'li',
+                                    null,
+                                    'Git'
+                                )
+                            )
+                        ),
+                        React.createElement('hr', null),
+                        React.createElement(
+                            'div',
                             { className: 'entry' },
                             React.createElement(
                                 'h2',

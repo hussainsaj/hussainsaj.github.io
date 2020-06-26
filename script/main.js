@@ -163,6 +163,19 @@ class App extends React.Component {
                             <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>
                         </div>
                         <hr/>
+                        <div id='skills' className='entry'>
+                            <h2>Key skills</h2>
+                            <ul className='flex'>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>React</li>
+                                <li>jQuery</li>
+                                <li>SQL server</li>
+                                <li>Git</li>
+                            </ul>
+                        </div>
+                        <hr/>
                         <div className='entry'>
                             <h2>Employment history</h2>
                             <table>
