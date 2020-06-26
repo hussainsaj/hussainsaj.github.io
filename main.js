@@ -17,7 +17,7 @@ var App = function (_React$Component) {
         _this.state = {
             cover: false, //true
             rotation: 0,
-            tab: 'about', //home
+            tab: 'home', //home
             menu: true,
             github: {
                 status: true,
@@ -233,7 +233,21 @@ var App = function (_React$Component) {
                         { className: 'content' },
                         React.createElement(
                             'div',
-                            { id: 'contact', className: 'flex' },
+                            { id: 'about', className: 'entry' },
+                            React.createElement(
+                                'h2',
+                                null,
+                                'About me'
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { id: 'contact', className: 'entry flex' },
                             React.createElement(
                                 'p',
                                 null,
@@ -251,20 +265,6 @@ var App = function (_React$Component) {
                                     { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
                                     'hussain-sajid@outlook.com'
                                 )
-                            )
-                        ),
-                        React.createElement(
-                            'div',
-                            { id: 'about', className: 'entry' },
-                            React.createElement(
-                                'h2',
-                                null,
-                                'About me'
-                            ),
-                            React.createElement(
-                                'p',
-                                null,
-                                'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
                             )
                         ),
                         React.createElement('hr', null),
