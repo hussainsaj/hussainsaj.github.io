@@ -9,12 +9,18 @@ class App extends React.Component {
             github: {
                 status: true,
                 projects: []
+            },
+            medium: {
+                status: true,
+                author: {},
+                blogs: []
             }
         };
         this.formatDateTime = this.formatDateTime.bind(this);
+        this.toText = this.toText.bind(this);
         this.updateProjects = this.updateProjects.bind(this);
         this.updateBlog = this.updateBlog.bind(this);
-        this.tabs = ['home','projects','about'] //['home','blog','projects','about']
+        this.tabs = ['home','blog','projects','about']
         this.coverValues = {
             true: {
                 color: 'white',
@@ -28,6 +34,7 @@ class App extends React.Component {
     }
 
     formatDateTime(dateTime) {
+        dateTime = dateTime.slice(0,10)
         const date = new Date(dateTime);
         let dd = date.getDate();
         let mm = date.getMonth()+1; 
@@ -35,6 +42,13 @@ class App extends React.Component {
         if(dd < 10) {dd = '0' + dd}
         if(mm < 10) {mm = '0' + mm}
         return `${dd}/${mm}/${yyyy}`
+    }
+
+    toText(node) {
+        let tag = document.createElement('div')
+        tag.innerHTML = node
+        node = tag.innerText
+        return node
     }
 
     updateProjects() {
@@ -49,7 +63,8 @@ class App extends React.Component {
                 for (let i=0; i<result.length; i++) {
                     result[i].updated_at_formatted = this.formatDateTime(result[i].updated_at)
                 }
-                this.setState({github:{status: true, projects: result}}) 
+
+                this.setState({github:{status: true, author: result[0].owner, projects: result}})
             },
             (error) => {
                 this.setState({github:{status: false, projects: []}})
@@ -59,7 +74,24 @@ class App extends React.Component {
     }
 
     updateBlog() {
-
+        fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@joyful_inchworm_butterfly_535")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                result.items = result.items.slice(0,5);
+                for (let i=0; i<result.items.length; i++) {
+                    result.items[i].date = this.formatDateTime(result.items[i].pubDate)
+                    result.items[i].content = this.toText(result.items[i].content)
+                    result.items[i].content = result.items[i].content.replace('Continue reading on Medium »','')
+                }
+                result.feed.name = result.items[0].author
+                this.setState({medium:{status: true, author: result.feed, blogs: result.items}})
+            },
+            (error) => {
+                this.setState({medium:{status: false, blogs: []}})
+                console.error(error)
+            }
+        )
     }
 
     componentDidMount() {
@@ -123,18 +155,38 @@ class App extends React.Component {
                             <p>(Full site coming soon)</p>
                         </div>
                     </div>}
-                    {/*this.state.tab === 'blog' && <div className='content'>
-                        <div className='entry>
-                            <p>Blog coming soon</p>
+                    {this.state.tab === 'blog' && <div className='content'>
+                        {this.state.medium.status ? <div>
+                            {this.state.medium.blogs.map(blog => {
+                                return <div className='entry'>
+                                    <h2><a className='text' href={blog.link} rel='noopener' target='_blank'>{blog.title}</a></h2>
+                                    <p>{blog.content}</p>
+                                    <p>{blog.date}</p>
+                                </div>
+                            })}
+                            <hr/>
+                            <h2>More on Medium</h2>
+                            <div className='entry social_card flex'>
+                                <picture>
+                                    <img src={this.state.medium.author.image} alt='GitHub profile icon'></img>
+                                </picture>
+                                <h3><a className='text' href={this.state.medium.author.link} rel='noopener' target='_blank'>{this.state.medium.author.name}</a></h3>
+                            </div>
                         </div>
-                        <hr/>
-                        <div className='entry>
-                            <h2>All of my blogs</h2>
-                            <p><a className='text' href='https://medium.com/@joyful_inchworm_butterfly_535' rel='noopener' target='_blank'>Medium</a></p>
-                        </div>
-                    </div>*/}
-                    {this.state.tab === 'projects' && <div>
-                        {this.state.github.status ? <div className='content'>
+                         : 
+                        <div>
+                            <div className='entry'>
+                                <p>Error loading results. Please try again later</p>
+                            </div>
+                            <hr/>
+                            <div className='entry'>
+                                <h2>All of my blogs</h2>
+                                <p><a className='text' href='https://medium.com/@joyful_inchworm_butterfly_535' rel='noopener' target='_blank'>Medium</a></p>
+                            </div>
+                        </div>}
+                    </div>}
+                    {this.state.tab === 'projects' && <div className='content'>
+                        {this.state.github.status ? <div>
                             {this.state.github.projects.map(project => {
                                 return <div className='entry'>
                                     <h2><a className='text' href={project.html_url} rel='noopener' target='_blank'>{project.name}</a></h2>
@@ -142,16 +194,26 @@ class App extends React.Component {
                                     <p>{project.updated_at_formatted}</p>
                                 </div>
                             })}
+                            <hr/>
+                            <h2>More on GitHub</h2>
+                            <div className='entry social_card flex'>
+                                <picture>
+                                    <img src={this.state.github.author.avatar_url} alt='GitHub profile icon'></img>
+                                </picture>
+                                <h3><a className='text' href={this.state.github.author.html_url} rel='noopener' target='_blank'>{this.state.github.author.login}</a></h3>
+                            </div>
                         </div>
                          : 
-                        <div className='entry'>
-                            <p>Error loading results. Please try again later</p>
+                        <div>
+                            <div className='entry'>
+                                <p>Error loading results. Please try again later</p>
+                            </div>
+                            <hr/>
+                            <div className='entry'>
+                                <h2>All of my projects</h2>
+                                <p><a className='text' href='https://github.com/hussainsaj' rel='noopener' target='_blank'>GitHub</a></p>
+                            </div>
                         </div>}
-                        <hr/>
-                        <div className='entry'>
-                            <h2>All of my projects</h2>
-                            <p><a className='text' href='https://github.com/hussainsaj' rel='noopener' target='_blank'>GitHub</a></p>
-                        </div>
                     </div>}
                     {this.state.tab === 'about' && <div className='content'>
                         <div id='about' className='entry'>

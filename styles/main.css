@@ -4,7 +4,7 @@ body {
     height: 100%;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: normal;
     margin: 0;
 }
@@ -15,6 +15,10 @@ h1 {
 
 h2 {
     font-size: 18px;
+}
+
+h3 {
+    font-size: 16px;
 }
 
 p, li {
@@ -116,6 +120,21 @@ main {
 
 #skills li {
     margin: 5px 10px;
+}
+
+.social_card {
+    margin: 10px 0;
+}
+
+.social_card img {
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.social_card h3 {
+    margin: auto 10px;
+    transform: translate(0, -50%);
 }
 
 @media (prefers-color-scheme: dark) {

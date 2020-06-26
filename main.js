@@ -22,12 +22,18 @@ var App = function (_React$Component) {
             github: {
                 status: true,
                 projects: []
+            },
+            medium: {
+                status: true,
+                author: {},
+                blogs: []
             }
         };
         _this.formatDateTime = _this.formatDateTime.bind(_this);
+        _this.toText = _this.toText.bind(_this);
         _this.updateProjects = _this.updateProjects.bind(_this);
         _this.updateBlog = _this.updateBlog.bind(_this);
-        _this.tabs = ['home', 'projects', 'about']; //['home','blog','projects','about']
+        _this.tabs = ['home', 'blog', 'projects', 'about'];
         _this.coverValues = {
             true: {
                 color: 'white',
@@ -44,6 +50,7 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: 'formatDateTime',
         value: function formatDateTime(dateTime) {
+            dateTime = dateTime.slice(0, 10);
             var date = new Date(dateTime);
             var dd = date.getDate();
             var mm = date.getMonth() + 1;
@@ -55,6 +62,14 @@ var App = function (_React$Component) {
                 mm = '0' + mm;
             }
             return dd + '/' + mm + '/' + yyyy;
+        }
+    }, {
+        key: 'toText',
+        value: function toText(node) {
+            var tag = document.createElement('div');
+            tag.innerHTML = node;
+            node = tag.innerText;
+            return node;
         }
     }, {
         key: 'updateProjects',
@@ -71,7 +86,8 @@ var App = function (_React$Component) {
                 for (var i = 0; i < result.length; i++) {
                     result[i].updated_at_formatted = _this2.formatDateTime(result[i].updated_at);
                 }
-                _this2.setState({ github: { status: true, projects: result } });
+
+                _this2.setState({ github: { status: true, author: result[0].owner, projects: result } });
             }, function (error) {
                 _this2.setState({ github: { status: false, projects: [] } });
                 console.error(error);
@@ -79,7 +95,25 @@ var App = function (_React$Component) {
         }
     }, {
         key: 'updateBlog',
-        value: function updateBlog() {}
+        value: function updateBlog() {
+            var _this3 = this;
+
+            fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@joyful_inchworm_butterfly_535").then(function (res) {
+                return res.json();
+            }).then(function (result) {
+                result.items = result.items.slice(0, 5);
+                for (var i = 0; i < result.items.length; i++) {
+                    result.items[i].date = _this3.formatDateTime(result.items[i].pubDate);
+                    result.items[i].content = _this3.toText(result.items[i].content);
+                    result.items[i].content = result.items[i].content.replace('Continue reading on Medium »', '');
+                }
+                result.feed.name = result.items[0].author;
+                _this3.setState({ medium: { status: true, author: result.feed, blogs: result.items } });
+            }, function (error) {
+                _this3.setState({ medium: { status: false, blogs: [] } });
+                console.error(error);
+            });
+        }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
@@ -89,7 +123,7 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
+            var _this4 = this;
 
             return React.createElement(
                 'div',
@@ -106,7 +140,7 @@ var App = function (_React$Component) {
                             React.createElement(
                                 'h1',
                                 { className: 'pointer', onClick: function onClick() {
-                                        return _this3.setState({ tab: 'home' });
+                                        return _this4.setState({ tab: 'home' });
                                     } },
                                 'Hussain Sajid'
                             )
@@ -115,29 +149,29 @@ var App = function (_React$Component) {
                     React.createElement(
                         'nav',
                         { className: 'flex pointer', onClick: function onClick() {
-                                return _this3.setState({ menu: !_this3.state.menu });
+                                return _this4.setState({ menu: !_this4.state.menu });
                             } },
                         this.tabs.map(function (value, i) {
-                            var display = _this3.state.menu ? _this3.state.tab : value;
+                            var display = _this4.state.menu ? _this4.state.tab : value;
                             var navLink = React.createElement(
                                 'div',
                                 { className: 'nav-item nav-link', onClick: function onClick() {
-                                        return _this3.setState({ tab: display, menu: !_this3.state.menu });
+                                        return _this4.setState({ tab: display, menu: !_this4.state.menu });
                                     } },
                                 React.createElement(
                                     'a',
-                                    { className: display === _this3.state.tab ? 'active' : '' },
+                                    { className: display === _this4.state.tab ? 'active' : '' },
                                     display
                                 )
                             );
                             var navButton = React.createElement(
                                 'div',
                                 { id: 'nav-button', className: 'nav-item' },
-                                _this3.state.menu ? React.createElement('i', { className: 'fas fa-sort-down' }) : React.createElement('i', { className: 'fas fa-sort-up' })
+                                _this4.state.menu ? React.createElement('i', { className: 'fas fa-sort-down' }) : React.createElement('i', { className: 'fas fa-sort-up' })
                             );
-                            if (_this3.state.menu && i === 0) {
+                            if (_this4.state.menu && i === 0) {
                                 return [navLink, navButton];
-                            } else if (!_this3.state.menu) {
+                            } else if (!_this4.state.menu) {
                                 if (i == 0) {
                                     return [navLink, navButton];
                                 } else {
@@ -168,12 +202,100 @@ var App = function (_React$Component) {
                             )
                         )
                     ),
+                    this.state.tab === 'blog' && React.createElement(
+                        'div',
+                        { className: 'content' },
+                        this.state.medium.status ? React.createElement(
+                            'div',
+                            null,
+                            this.state.medium.blogs.map(function (blog) {
+                                return React.createElement(
+                                    'div',
+                                    { className: 'entry' },
+                                    React.createElement(
+                                        'h2',
+                                        null,
+                                        React.createElement(
+                                            'a',
+                                            { className: 'text', href: blog.link, rel: 'noopener', target: '_blank' },
+                                            blog.title
+                                        )
+                                    ),
+                                    React.createElement(
+                                        'p',
+                                        null,
+                                        blog.content
+                                    ),
+                                    React.createElement(
+                                        'p',
+                                        null,
+                                        blog.date
+                                    )
+                                );
+                            }),
+                            React.createElement('hr', null),
+                            React.createElement(
+                                'h2',
+                                null,
+                                'More on Medium'
+                            ),
+                            React.createElement(
+                                'div',
+                                { className: 'entry social_card flex' },
+                                React.createElement(
+                                    'picture',
+                                    null,
+                                    React.createElement('img', { src: this.state.medium.author.image, alt: 'GitHub profile icon' })
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    null,
+                                    React.createElement(
+                                        'a',
+                                        { className: 'text', href: this.state.medium.author.link, rel: 'noopener', target: '_blank' },
+                                        this.state.medium.author.name
+                                    )
+                                )
+                            )
+                        ) : React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'div',
+                                { className: 'entry' },
+                                React.createElement(
+                                    'p',
+                                    null,
+                                    'Error loading results. Please try again later'
+                                )
+                            ),
+                            React.createElement('hr', null),
+                            React.createElement(
+                                'div',
+                                { className: 'entry' },
+                                React.createElement(
+                                    'h2',
+                                    null,
+                                    'All of my blogs'
+                                ),
+                                React.createElement(
+                                    'p',
+                                    null,
+                                    React.createElement(
+                                        'a',
+                                        { className: 'text', href: 'https://medium.com/@joyful_inchworm_butterfly_535', rel: 'noopener', target: '_blank' },
+                                        'Medium'
+                                    )
+                                )
+                            )
+                        )
+                    ),
                     this.state.tab === 'projects' && React.createElement(
                         'div',
-                        null,
+                        { className: 'content' },
                         this.state.github.status ? React.createElement(
                             'div',
-                            { className: 'content' },
+                            null,
                             this.state.github.projects.map(function (project) {
                                 return React.createElement(
                                     'div',
@@ -198,32 +320,60 @@ var App = function (_React$Component) {
                                         project.updated_at_formatted
                                     )
                                 );
-                            })
-                        ) : React.createElement(
-                            'div',
-                            { className: 'entry' },
-                            React.createElement(
-                                'p',
-                                null,
-                                'Error loading results. Please try again later'
-                            )
-                        ),
-                        React.createElement('hr', null),
-                        React.createElement(
-                            'div',
-                            { className: 'entry' },
+                            }),
+                            React.createElement('hr', null),
                             React.createElement(
                                 'h2',
                                 null,
-                                'All of my projects'
+                                'More on GitHub'
                             ),
                             React.createElement(
-                                'p',
-                                null,
+                                'div',
+                                { className: 'entry social_card flex' },
                                 React.createElement(
-                                    'a',
-                                    { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
-                                    'GitHub'
+                                    'picture',
+                                    null,
+                                    React.createElement('img', { src: this.state.github.author.avatar_url, alt: 'GitHub profile icon' })
+                                ),
+                                React.createElement(
+                                    'h3',
+                                    null,
+                                    React.createElement(
+                                        'a',
+                                        { className: 'text', href: this.state.github.author.html_url, rel: 'noopener', target: '_blank' },
+                                        this.state.github.author.login
+                                    )
+                                )
+                            )
+                        ) : React.createElement(
+                            'div',
+                            null,
+                            React.createElement(
+                                'div',
+                                { className: 'entry' },
+                                React.createElement(
+                                    'p',
+                                    null,
+                                    'Error loading results. Please try again later'
+                                )
+                            ),
+                            React.createElement('hr', null),
+                            React.createElement(
+                                'div',
+                                { className: 'entry' },
+                                React.createElement(
+                                    'h2',
+                                    null,
+                                    'All of my projects'
+                                ),
+                                React.createElement(
+                                    'p',
+                                    null,
+                                    React.createElement(
+                                        'a',
+                                        { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
+                                        'GitHub'
+                                    )
                                 )
                             )
                         )
