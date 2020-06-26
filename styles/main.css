@@ -83,11 +83,11 @@ title {
 }
 
 .nav-link a {
-    color: rgba(0,0,0,0.6)
+    opacity: 60%;
 }
 
 .nav-link .active {
-    color: black;
+    opacity: 100%;
 }
 
 #nav-button {
@@ -116,6 +116,16 @@ main {
 
 #skills li {
     margin: 5px 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #121212;
+    }
+
+    h1, h2, p, a, i, td, li {
+        color: white;
+    }
 }
 
 /*#background {
