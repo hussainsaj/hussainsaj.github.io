@@ -25,6 +25,13 @@ p, li {
     font-size: 14px;
 }
 
+button {
+    background-color: inherit;
+    padding: 10px 20px;
+    border: 1px solid black;
+    margin: 0 10px;
+}
+
 table {
     padding: 10px 0;
 }
@@ -143,8 +150,12 @@ main {
         background-color: #121212;
     }
 
-    h1, h2, p, a, i, td, li {
+    h1, h2, p, a, i, td, li, button {
         color: white;
+    }
+
+    button {
+        border-color: white;
     }
 }
 

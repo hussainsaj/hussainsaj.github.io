@@ -20,7 +20,7 @@ class App extends React.Component {
         this.toText = this.toText.bind(this);
         this.updateProjects = this.updateProjects.bind(this);
         this.updateBlog = this.updateBlog.bind(this);
-        this.tabs = ['home','blog','projects','about']
+        this.tabs = ['blog','projects','about']
         this.coverValues = {
             true: {
                 color: 'white',
@@ -114,26 +114,22 @@ class App extends React.Component {
                             <h1 onClick={() => this.setState({cover: !this.state.cover, rotation: this.state.rotation + 45, tab: 'home'})}>+</h1>
                         </div>*/}
                     </title>
-                    <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
+                    {this.state.tab !== 'home' && <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
                         {this.tabs.map((value, i)=>{
                             const display = this.state.menu ? this.state.tab : value
                             const navLink = <div className='nav-item nav-link' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
                                     <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
                                 </div>
                             const navButton = <div id='nav-button' className='nav-item'>
-                                    {this.state.menu ? <i className="fas fa-sort-down"></i> : <i className="fas fa-sort-up"></i>}
+                                    {this.state.menu ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
                                 </div>
-                            if (this.state.menu && i===0) {
+                            if (i===0) {
                                 return [navLink,navButton]
                             } else if (!this.state.menu) {
-                                if (i==0) {
-                                    return [navLink,navButton]
-                                } else {
-                                    return navLink
-                                }
+                                return navLink
                             }
                         })}
-                    </nav>
+                    </nav>}
                 </header>}
                 <main>
                     {/*this.state.cover && <div>
@@ -155,7 +151,9 @@ class App extends React.Component {
                     {this.state.tab === 'home' && <div id='content'>
                         <div className='entry text'>
                             <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
-                            <p>(Full site coming soon)</p>
+                        </div>
+                        <div className='entry text'>
+                            <button onClick={() => this.setState({tab: 'about'})}><h3>Enter</h3></button>
                         </div>
                     </div>}
                     {this.state.tab === 'blog' && <div className='content'>

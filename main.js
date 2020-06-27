@@ -33,7 +33,7 @@ var App = function (_React$Component) {
         _this.toText = _this.toText.bind(_this);
         _this.updateProjects = _this.updateProjects.bind(_this);
         _this.updateBlog = _this.updateBlog.bind(_this);
-        _this.tabs = ['home', 'blog', 'projects', 'about'];
+        _this.tabs = ['blog', 'projects', 'about'];
         _this.coverValues = {
             true: {
                 color: 'white',
@@ -149,7 +149,7 @@ var App = function (_React$Component) {
                             )
                         )
                     ),
-                    React.createElement(
+                    this.state.tab !== 'home' && React.createElement(
                         'nav',
                         { className: 'flex pointer', onClick: function onClick() {
                                 return _this4.setState({ menu: !_this4.state.menu });
@@ -170,16 +170,12 @@ var App = function (_React$Component) {
                             var navButton = React.createElement(
                                 'div',
                                 { id: 'nav-button', className: 'nav-item' },
-                                _this4.state.menu ? React.createElement('i', { className: 'fas fa-sort-down' }) : React.createElement('i', { className: 'fas fa-sort-up' })
+                                _this4.state.menu ? React.createElement('i', { className: 'fas fa-chevron-down' }) : React.createElement('i', { className: 'fas fa-chevron-up' })
                             );
-                            if (_this4.state.menu && i === 0) {
+                            if (i === 0) {
                                 return [navLink, navButton];
                             } else if (!_this4.state.menu) {
-                                if (i == 0) {
-                                    return [navLink, navButton];
-                                } else {
-                                    return navLink;
-                                }
+                                return navLink;
                             }
                         })
                     )
@@ -197,11 +193,21 @@ var App = function (_React$Component) {
                                 'h2',
                                 null,
                                 'I help build websites with forward-thinking teams that generate positive and lasting value.'
-                            ),
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'entry text' },
                             React.createElement(
-                                'p',
-                                null,
-                                '(Full site coming soon)'
+                                'button',
+                                { onClick: function onClick() {
+                                        return _this4.setState({ tab: 'about' });
+                                    } },
+                                React.createElement(
+                                    'h3',
+                                    null,
+                                    'Enter'
+                                )
                             )
                         )
                     ),
