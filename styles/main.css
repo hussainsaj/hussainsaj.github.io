@@ -110,6 +110,10 @@ main {
     padding-bottom: 100px
 }
 
+#home {
+    top: 200px;
+}
+
 .entry {
     padding: 10px 0;
 }
