@@ -113,7 +113,7 @@ var App = function (_React$Component) {
                         { id: 'home', className: 'content absolute' },
                         React.createElement(
                             'div',
-                            { className: 'entry text' },
+                            { className: 'section text' },
                             React.createElement(
                                 'h2',
                                 null,
@@ -122,7 +122,7 @@ var App = function (_React$Component) {
                         ),
                         React.createElement(
                             'div',
-                            { className: 'entry text' },
+                            { className: 'section text' },
                             React.createElement(
                                 'button',
                                 { onClick: function onClick() {
@@ -201,7 +201,7 @@ var Blog = function (_React$Component2) {
                 { className: 'content' },
                 this.state.medium.status && this.state.medium.availability ? React.createElement(
                     'div',
-                    null,
+                    { className: 'desktop-flex' },
                     this.state.medium.blogs.map(function (blog) {
                         return React.createElement(
                             'div',
@@ -229,25 +229,29 @@ var Blog = function (_React$Component2) {
                     }),
                     React.createElement('hr', null),
                     React.createElement(
-                        'h2',
-                        null,
-                        'More on Medium'
-                    ),
-                    React.createElement(
                         'div',
-                        { className: 'entry social_card flex' },
+                        { className: 'social' },
                         React.createElement(
-                            'picture',
+                            'h2',
                             null,
-                            React.createElement('img', { src: this.state.medium.author.image, alt: 'GitHub profile icon' })
+                            'More on Medium'
                         ),
                         React.createElement(
-                            'h3',
-                            null,
+                            'div',
+                            { className: 'social_card flex' },
                             React.createElement(
-                                'a',
-                                { className: 'text', href: this.state.medium.author.link, rel: 'noopener', target: '_blank' },
-                                this.state.medium.author.name
+                                'picture',
+                                null,
+                                React.createElement('img', { src: this.state.medium.author.image, alt: 'GitHub profile icon' })
+                            ),
+                            React.createElement(
+                                'h3',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: this.state.medium.author.link, rel: 'noopener', target: '_blank' },
+                                    this.state.medium.author.name
+                                )
                             )
                         )
                     )
@@ -266,7 +270,7 @@ var Blog = function (_React$Component2) {
                     React.createElement('hr', null),
                     React.createElement(
                         'div',
-                        { className: 'entry' },
+                        { className: 'social' },
                         React.createElement(
                             'h2',
                             null,
@@ -359,7 +363,7 @@ var Projects = function (_React$Component3) {
                 { className: 'content' },
                 this.state.github.status && this.state.github.availability ? React.createElement(
                     'div',
-                    null,
+                    { className: 'desktop-flex' },
                     this.state.github.projects.map(function (project) {
                         return React.createElement(
                             'div',
@@ -387,25 +391,29 @@ var Projects = function (_React$Component3) {
                     }),
                     React.createElement('hr', null),
                     React.createElement(
-                        'h2',
-                        null,
-                        'More on GitHub'
-                    ),
-                    React.createElement(
                         'div',
-                        { className: 'entry social_card flex' },
+                        { className: 'social' },
                         React.createElement(
-                            'picture',
+                            'h2',
                             null,
-                            React.createElement('img', { src: this.state.github.author.avatar_url, alt: 'GitHub profile icon' })
+                            'More on GitHub'
                         ),
                         React.createElement(
-                            'h3',
-                            null,
+                            'div',
+                            { className: 'entry social_card flex' },
                             React.createElement(
-                                'a',
-                                { className: 'text', href: this.state.github.author.html_url, rel: 'noopener', target: '_blank' },
-                                this.state.github.author.login
+                                'picture',
+                                null,
+                                React.createElement('img', { src: this.state.github.author.avatar_url, alt: 'GitHub profile icon' })
+                            ),
+                            React.createElement(
+                                'h3',
+                                null,
+                                React.createElement(
+                                    'a',
+                                    { className: 'text', href: this.state.github.author.html_url, rel: 'noopener', target: '_blank' },
+                                    this.state.github.author.login
+                                )
                             )
                         )
                     )
@@ -424,7 +432,7 @@ var Projects = function (_React$Component3) {
                     React.createElement('hr', null),
                     React.createElement(
                         'div',
-                        { className: 'entry' },
+                        { className: 'social' },
                         React.createElement(
                             'h2',
                             null,
@@ -477,7 +485,7 @@ var About = function (_React$Component4) {
                 { className: 'content' },
                 React.createElement(
                     'div',
-                    { className: 'entry text' },
+                    { className: 'section text' },
                     React.createElement(
                         'h2',
                         null,
@@ -491,7 +499,7 @@ var About = function (_React$Component4) {
                 ),
                 React.createElement(
                     'div',
-                    { id: 'contact', className: 'entry flex' },
+                    { id: 'contact', className: 'section flex' },
                     React.createElement(
                         'p',
                         null,
@@ -514,7 +522,7 @@ var About = function (_React$Component4) {
                 React.createElement('hr', null),
                 React.createElement(
                     'div',
-                    { id: 'skills', className: 'entry' },
+                    { id: 'skills', className: 'section' },
                     React.createElement(
                         'h2',
                         null,
@@ -582,7 +590,7 @@ var About = function (_React$Component4) {
                 React.createElement('hr', null),
                 React.createElement(
                     'div',
-                    { className: 'entry' },
+                    { className: 'section' },
                     React.createElement(
                         'h2',
                         null,
@@ -634,7 +642,7 @@ var About = function (_React$Component4) {
                 React.createElement('hr', null),
                 React.createElement(
                     'div',
-                    { className: 'entry' },
+                    { className: 'section' },
                     React.createElement(
                         'h2',
                         null,
@@ -686,7 +694,7 @@ var About = function (_React$Component4) {
                 React.createElement('hr', null),
                 React.createElement(
                     'div',
-                    { className: 'entry' },
+                    { className: 'section' },
                     React.createElement(
                         'h2',
                         null,

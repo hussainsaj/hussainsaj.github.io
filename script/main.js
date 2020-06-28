@@ -72,10 +72,10 @@ class App extends React.Component {
                         </div>}
                     </div>*/}
                     {this.state.tab === 'home' && <div id='home' className='content absolute'>
-                        <div className='entry text'>
+                        <div className='section text'>
                             <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
                         </div>
-                        <div className='entry text'>
+                        <div className='section text'>
                             <button onClick={() => this.setState({tab: 'about'})}><h3>Enter</h3></button>
                         </div>
                     </div>}
@@ -130,7 +130,7 @@ class Blog extends React.Component {
     render() {
         return (
             <div className='content'>
-                {this.state.medium.status && this.state.medium.availability ? <div>
+                {this.state.medium.status && this.state.medium.availability ? <div className='desktop-flex'>
                     {this.state.medium.blogs.map(blog => {
                         return <div className='entry text'>
                             <h2><a className='text' href={blog.link} rel='noopener' target='_blank'>{blog.title}</a></h2>
@@ -139,12 +139,14 @@ class Blog extends React.Component {
                         </div>
                     })}
                     <hr/>
-                    <h2>More on Medium</h2>
-                    <div className='entry social_card flex'>
-                        <picture>
-                            <img src={this.state.medium.author.image} alt='GitHub profile icon'></img>
-                        </picture>
-                        <h3><a className='text' href={this.state.medium.author.link} rel='noopener' target='_blank'>{this.state.medium.author.name}</a></h3>
+                    <div className='social'>
+                        <h2>More on Medium</h2>
+                        <div className='social_card flex'>
+                            <picture>
+                                <img src={this.state.medium.author.image} alt='GitHub profile icon'></img>
+                            </picture>
+                            <h3><a className='text' href={this.state.medium.author.link} rel='noopener' target='_blank'>{this.state.medium.author.name}</a></h3>
+                        </div>
                     </div>
                 </div>
                     : this.state.medium.status && !this.state.medium.availability ?
@@ -153,7 +155,7 @@ class Blog extends React.Component {
                         <p>Error loading results. Please try again later</p>
                     </div>
                     <hr/>
-                    <div className='entry'>
+                    <div className='social'>
                         <h2>All of my blogs</h2>
                         <p><a className='text' href='https://medium.com/@joyful_inchworm_butterfly_535' rel='noopener' target='_blank'>Medium</a></p>
                     </div>
@@ -214,7 +216,7 @@ class Projects extends React.Component {
     render() {
         return (
             <div className='content'>
-                {this.state.github.status && this.state.github.availability ? <div>
+                {this.state.github.status && this.state.github.availability ? <div className='desktop-flex'>
                     {this.state.github.projects.map(project => {
                         return <div className='entry text'>
                             <h2><a className='text' href={project.html_url} rel='noopener' target='_blank'>{project.name}</a></h2>
@@ -223,12 +225,14 @@ class Projects extends React.Component {
                         </div>
                     })}
                     <hr/>
-                    <h2>More on GitHub</h2>
-                    <div className='entry social_card flex'>
-                        <picture>
-                            <img src={this.state.github.author.avatar_url} alt='GitHub profile icon'></img>
-                        </picture>
-                        <h3><a className='text' href={this.state.github.author.html_url} rel='noopener' target='_blank'>{this.state.github.author.login}</a></h3>
+                    <div className='social'>
+                        <h2>More on GitHub</h2>
+                        <div className='entry social_card flex'>
+                            <picture>
+                                <img src={this.state.github.author.avatar_url} alt='GitHub profile icon'></img>
+                            </picture>
+                            <h3><a className='text' href={this.state.github.author.html_url} rel='noopener' target='_blank'>{this.state.github.author.login}</a></h3>
+                        </div>
                     </div>
                 </div>
                     : this.state.github.status && !this.state.github.availability ?
@@ -237,7 +241,7 @@ class Projects extends React.Component {
                         <p>Error loading results. Please try again later</p>
                     </div>
                     <hr/>
-                    <div className='entry'>
+                    <div className='social'>
                         <h2>All of my projects</h2>
                         <p><a className='text' href='https://github.com/hussainsaj' rel='noopener' target='_blank'>GitHub</a></p>
                     </div>
@@ -257,16 +261,16 @@ class About extends React.Component {
     render() {
         return (
             <div className='content'>
-                <div className='entry text'>
+                <div className='section text'>
                     <h2>About me</h2>
                     <p>I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
                 </div>
-                <div id='contact' className='entry flex'>
+                <div id='contact' className='section flex'>
                     <p><a className='text' href='https://www.linkedin.com/in/hussainsaj/' rel='noopener' target='_blank'>LinkedIn</a></p>
                     <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>
                 </div>
                 <hr/>
-                <div id='skills' className='entry'>
+                <div id='skills' className='section'>
                     <h2>Key skills</h2>
                     <ul className='flex'>
                         <li>Scrum</li>
@@ -284,7 +288,7 @@ class About extends React.Component {
                     </ul>
                 </div>
                 <hr/>
-                <div className='entry'>
+                <div className='section'>
                     <h2>Employment history</h2>
                     <table>
                         <tr>
@@ -300,7 +304,7 @@ class About extends React.Component {
                     </table>
                 </div>
                 <hr/>
-                <div className='entry'>
+                <div className='section'>
                     <h2>Recognitions</h2>
                     <table>
                         <tr>
@@ -316,7 +320,7 @@ class About extends React.Component {
                     </table>
                 </div>
                 <hr/>
-                <div className='entry'>
+                <div className='section'>
                     <h2>Education history</h2>
                     <table>
                         <tr>

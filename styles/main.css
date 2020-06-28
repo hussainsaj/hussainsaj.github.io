@@ -114,7 +114,7 @@ main {
     top: 200px;
 }
 
-.entry {
+.entry, .section {
     padding: 10px 0;
 }
 
@@ -134,6 +134,10 @@ main {
     margin: 5px 10px;
 }
 
+.social {
+    width: 100%;
+}
+
 .social_card {
     margin: 10px 0;
 }
@@ -147,6 +151,42 @@ main {
 .social_card h3 {
     margin: auto 10px;
     transform: translate(0, -50%);
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 40px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p, li {
+        font-size: 16px;
+    }
+
+    .text {
+        width: 70%;
+    }
+
+    .desktop-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .entry {
+        width: 45%;
+        margin-right: 5%;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
