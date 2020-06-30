@@ -3,11 +3,16 @@ class App extends React.Component {
         super(props);
         this.state = {
             tab: 'home',
-            menu: true
+            menu: true,
+            screen: {
+                width: 0,
+                height: 0
+            }
         };
         this.tabs = ['blog','projects','about']
         this.formatDateTime = this.formatDateTime.bind(this);
         this.toText = this.toText.bind(this);
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
     formatDateTime(dateTime) {
@@ -19,6 +24,7 @@ class App extends React.Component {
         if(dd < 10) {dd = '0' + dd}
         if(mm < 10) {mm = '0' + mm}
         return `${dd}/${mm}/${yyyy}`
+        
     }
 
     toText(node) {
@@ -28,31 +34,53 @@ class App extends React.Component {
         return node
     }
 
+    updateWindowDimensions() {
+      this.setState({screen: {width: window.innerWidth, height: window.innerHeight}});
+    }
+
+    componentDidMount() {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+    
+    componentWillUnmount() {
+      window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
     render() {
         return (
             <div>
-                <header className={this.state.tab === 'home' && 'absolute text'}>
-                    <title className='flex'>
-                        <div id='logo'>
-                            <h1 className='pointer' onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
-                        </div>
-                    </title>
-                    {this.state.tab !== 'home' && <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
-                        {this.tabs.map((value, i)=>{
-                            const display = this.state.menu ? this.state.tab : value
-                            const navLink = <div className='nav-item nav-link' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
-                                    <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
+                <header className={this.state.tab === 'home' ? 'absolute text' : 'flex'}>
+                    <div id='logo' className='flex'>
+                        <h1 className='pointer' onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
+                    </div>
+                    {this.state.screen.width >= 1024 ? <div>
+                        {this.state.tab !== 'home' && <nav className='flex'>
+                            {this.tabs.map((value)=>{
+                                return <div className='nav-item nav-link pointer' onClick={() => this.setState({tab: value, menu:!this.state.menu})}>
+                                    <a className={value===this.state.tab ? 'active' : ''}>{value}</a>
                                 </div>
-                            const navButton = <div id='nav-button' className='nav-item'>
-                                    {this.state.menu ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
-                                </div>
-                            if (i===0) {
-                                return [navLink,navButton]
-                            } else if (!this.state.menu) {
-                                return navLink
-                            }
-                        })}
-                    </nav>}
+                            })}
+                        </nav>}
+                    </div> :
+                    <div>
+                        {this.state.tab !== 'home' && <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
+                            {this.tabs.map((value, i)=>{
+                                const display = this.state.menu ? this.state.tab : value
+                                const navLink = <div className='nav-item nav-link nav-link-mobile' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
+                                        <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
+                                    </div>
+                                const navButton = <div id='nav-button' className='nav-item'>
+                                        {this.state.menu ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
+                                    </div>
+                                if (i===0) {
+                                    return [navLink,navButton]
+                                } else if (!this.state.menu) {
+                                    return navLink
+                                }
+                            })}
+                        </nav>}
+                    </div>}
                 </header>
                 <main>
                     {/*this.state.cover && <div>
@@ -76,7 +104,7 @@ class App extends React.Component {
                             <h2>I help build websites with forward-thinking teams that generate positive and lasting value.</h2>
                         </div>
                         <div className='section text'>
-                            <button onClick={() => this.setState({tab: 'about'})}><h3>Enter</h3></button>
+                            <button className='transision pointer' onClick={() => this.setState({tab: 'about'})}><h3>Enter</h3></button>
                         </div>
                     </div>}
                     {this.state.tab === 'blog' && <Blog formatDateTime={this.formatDateTime} toText={this.toText}/>}

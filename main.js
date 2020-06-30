@@ -16,11 +16,16 @@ var App = function (_React$Component) {
 
         _this.state = {
             tab: 'home',
-            menu: true
+            menu: true,
+            screen: {
+                width: 0,
+                height: 0
+            }
         };
         _this.tabs = ['blog', 'projects', 'about'];
         _this.formatDateTime = _this.formatDateTime.bind(_this);
         _this.toText = _this.toText.bind(_this);
+        _this.updateWindowDimensions = _this.updateWindowDimensions.bind(_this);
         return _this;
     }
 
@@ -49,6 +54,22 @@ var App = function (_React$Component) {
             return node;
         }
     }, {
+        key: 'updateWindowDimensions',
+        value: function updateWindowDimensions() {
+            this.setState({ screen: { width: window.innerWidth, height: window.innerHeight } });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.updateWindowDimensions();
+            window.addEventListener('resize', this.updateWindowDimensions);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener('resize', this.updateWindowDimensions);
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -58,51 +79,71 @@ var App = function (_React$Component) {
                 null,
                 React.createElement(
                     'header',
-                    { className: this.state.tab === 'home' && 'absolute text' },
+                    { className: this.state.tab === 'home' ? 'absolute text' : 'flex' },
                     React.createElement(
-                        'title',
-                        { className: 'flex' },
+                        'div',
+                        { id: 'logo', className: 'flex' },
                         React.createElement(
-                            'div',
-                            { id: 'logo' },
-                            React.createElement(
-                                'h1',
-                                { className: 'pointer', onClick: function onClick() {
-                                        return _this2.setState({ tab: 'home' });
-                                    } },
-                                'Hussain Sajid'
-                            )
+                            'h1',
+                            { className: 'pointer', onClick: function onClick() {
+                                    return _this2.setState({ tab: 'home' });
+                                } },
+                            'Hussain Sajid'
                         )
                     ),
-                    this.state.tab !== 'home' && React.createElement(
-                        'nav',
-                        { className: 'flex pointer', onClick: function onClick() {
-                                return _this2.setState({ menu: !_this2.state.menu });
-                            } },
-                        this.tabs.map(function (value, i) {
-                            var display = _this2.state.menu ? _this2.state.tab : value;
-                            var navLink = React.createElement(
-                                'div',
-                                { className: 'nav-item nav-link', onClick: function onClick() {
-                                        return _this2.setState({ tab: display, menu: !_this2.state.menu });
-                                    } },
-                                React.createElement(
-                                    'a',
-                                    { className: display === _this2.state.tab ? 'active' : '' },
-                                    display
-                                )
-                            );
-                            var navButton = React.createElement(
-                                'div',
-                                { id: 'nav-button', className: 'nav-item' },
-                                _this2.state.menu ? React.createElement('i', { className: 'fas fa-chevron-down' }) : React.createElement('i', { className: 'fas fa-chevron-up' })
-                            );
-                            if (i === 0) {
-                                return [navLink, navButton];
-                            } else if (!_this2.state.menu) {
-                                return navLink;
-                            }
-                        })
+                    this.state.screen.width >= 1024 ? React.createElement(
+                        'div',
+                        null,
+                        this.state.tab !== 'home' && React.createElement(
+                            'nav',
+                            { className: 'flex' },
+                            this.tabs.map(function (value) {
+                                return React.createElement(
+                                    'div',
+                                    { className: 'nav-item nav-link pointer', onClick: function onClick() {
+                                            return _this2.setState({ tab: value, menu: !_this2.state.menu });
+                                        } },
+                                    React.createElement(
+                                        'a',
+                                        { className: value === _this2.state.tab ? 'active' : '' },
+                                        value
+                                    )
+                                );
+                            })
+                        )
+                    ) : React.createElement(
+                        'div',
+                        null,
+                        this.state.tab !== 'home' && React.createElement(
+                            'nav',
+                            { className: 'flex pointer', onClick: function onClick() {
+                                    return _this2.setState({ menu: !_this2.state.menu });
+                                } },
+                            this.tabs.map(function (value, i) {
+                                var display = _this2.state.menu ? _this2.state.tab : value;
+                                var navLink = React.createElement(
+                                    'div',
+                                    { className: 'nav-item nav-link nav-link-mobile', onClick: function onClick() {
+                                            return _this2.setState({ tab: display, menu: !_this2.state.menu });
+                                        } },
+                                    React.createElement(
+                                        'a',
+                                        { className: display === _this2.state.tab ? 'active' : '' },
+                                        display
+                                    )
+                                );
+                                var navButton = React.createElement(
+                                    'div',
+                                    { id: 'nav-button', className: 'nav-item' },
+                                    _this2.state.menu ? React.createElement('i', { className: 'fas fa-chevron-down' }) : React.createElement('i', { className: 'fas fa-chevron-up' })
+                                );
+                                if (i === 0) {
+                                    return [navLink, navButton];
+                                } else if (!_this2.state.menu) {
+                                    return navLink;
+                                }
+                            })
+                        )
                     )
                 ),
                 React.createElement(
@@ -125,7 +166,7 @@ var App = function (_React$Component) {
                             { className: 'section text' },
                             React.createElement(
                                 'button',
-                                { onClick: function onClick() {
+                                { className: 'transision pointer', onClick: function onClick() {
                                         return _this2.setState({ tab: 'about' });
                                     } },
                                 React.createElement(

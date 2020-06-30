@@ -32,6 +32,11 @@ button {
     margin: 0 10px;
 }
 
+button:hover {
+    background-color: black;
+    color: white;
+}
+
 table {
     padding: 10px 0;
 }
@@ -78,11 +83,8 @@ main {
     padding: 20px 0;
 }
 
-title {
-    padding: 10px 0;
-}
-
 #logo {
+    padding: 10px 0;
     width: 90%;
 }
 
@@ -90,7 +92,7 @@ title {
     padding: 10px 0;
 }
 
-.nav-link {
+.nav-link-mobile {
     width: 90%;
 }
 
@@ -189,6 +191,17 @@ main {
     }
 }
 
+@media screen and (min-width: 1024px) {
+    #logo {
+        width: 200px;
+    }
+
+    .nav-item {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         background-color: #121212;
@@ -200,6 +213,11 @@ main {
 
     button {
         border-color: white;
+    }
+
+    button:hover {
+        background-color: white;
+        color: black;
     }
 }
 
