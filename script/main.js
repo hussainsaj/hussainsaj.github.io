@@ -54,33 +54,29 @@ class App extends React.Component {
                     <div id='logo' className='flex'>
                         <h1 className='pointer' onClick={() => this.setState({tab: 'home'})}>Hussain Sajid</h1>
                     </div>
-                    {this.state.screen.width >= 1024 ? <div>
-                        {this.state.tab !== 'home' && <nav className='flex'>
-                            {this.tabs.map((value)=>{
-                                return <div className='nav-item nav-link pointer' onClick={() => this.setState({tab: value, menu:!this.state.menu})}>
-                                    <a className={value===this.state.tab ? 'active' : ''}>{value}</a>
+                    {this.state.screen.width >= 1024 && this.state.tab !== 'home' && <nav className='flex'>
+                        {this.tabs.map((value)=>{
+                            return <div className='nav-item nav-link pointer' onClick={() => this.setState({tab: value, menu:!this.state.menu})}>
+                                <a className={value===this.state.tab ? 'active' : ''}>{value}</a>
+                            </div>
+                        })}
+                    </nav>}
+                    {this.state.screen.width < 1024 && this.state.tab !== 'home' && <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
+                        {this.tabs.map((value, i)=>{
+                            const display = this.state.menu ? this.state.tab : value
+                            const navLink = <div className='nav-item nav-link' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
+                                    <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
                                 </div>
-                            })}
-                        </nav>}
-                    </div> :
-                    <div>
-                        {this.state.tab !== 'home' && <nav className='flex pointer' onClick={() => this.setState({menu: !this.state.menu})}>
-                            {this.tabs.map((value, i)=>{
-                                const display = this.state.menu ? this.state.tab : value
-                                const navLink = <div className='nav-item nav-link nav-link-mobile' onClick={() => this.setState({tab: display, menu:!this.state.menu})}>
-                                        <a className={display===this.state.tab ? 'active' : ''}>{display}</a>
-                                    </div>
-                                const navButton = <div id='nav-button' className='nav-item'>
-                                        {this.state.menu ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
-                                    </div>
-                                if (i===0) {
-                                    return [navLink,navButton]
-                                } else if (!this.state.menu) {
-                                    return navLink
-                                }
-                            })}
-                        </nav>}
-                    </div>}
+                            const navButton = <div id='nav-button' className='nav-item'>
+                                    {this.state.menu ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}
+                                </div>
+                            if (i===0) {
+                                return [navLink,navButton]
+                            } else if (!this.state.menu) {
+                                return navLink
+                            }
+                        })}
+                    </nav>}
                 </header>
                 <main>
                     {/*this.state.cover && <div>

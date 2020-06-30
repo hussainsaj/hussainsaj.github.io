@@ -91,59 +91,52 @@ var App = function (_React$Component) {
                             'Hussain Sajid'
                         )
                     ),
-                    this.state.screen.width >= 1024 ? React.createElement(
-                        'div',
-                        null,
-                        this.state.tab !== 'home' && React.createElement(
-                            'nav',
-                            { className: 'flex' },
-                            this.tabs.map(function (value) {
-                                return React.createElement(
-                                    'div',
-                                    { className: 'nav-item nav-link pointer', onClick: function onClick() {
-                                            return _this2.setState({ tab: value, menu: !_this2.state.menu });
-                                        } },
-                                    React.createElement(
-                                        'a',
-                                        { className: value === _this2.state.tab ? 'active' : '' },
-                                        value
-                                    )
-                                );
-                            })
-                        )
-                    ) : React.createElement(
-                        'div',
-                        null,
-                        this.state.tab !== 'home' && React.createElement(
-                            'nav',
-                            { className: 'flex pointer', onClick: function onClick() {
-                                    return _this2.setState({ menu: !_this2.state.menu });
-                                } },
-                            this.tabs.map(function (value, i) {
-                                var display = _this2.state.menu ? _this2.state.tab : value;
-                                var navLink = React.createElement(
-                                    'div',
-                                    { className: 'nav-item nav-link nav-link-mobile', onClick: function onClick() {
-                                            return _this2.setState({ tab: display, menu: !_this2.state.menu });
-                                        } },
-                                    React.createElement(
-                                        'a',
-                                        { className: display === _this2.state.tab ? 'active' : '' },
-                                        display
-                                    )
-                                );
-                                var navButton = React.createElement(
-                                    'div',
-                                    { id: 'nav-button', className: 'nav-item' },
-                                    _this2.state.menu ? React.createElement('i', { className: 'fas fa-chevron-down' }) : React.createElement('i', { className: 'fas fa-chevron-up' })
-                                );
-                                if (i === 0) {
-                                    return [navLink, navButton];
-                                } else if (!_this2.state.menu) {
-                                    return navLink;
-                                }
-                            })
-                        )
+                    this.state.screen.width >= 1024 && this.state.tab !== 'home' && React.createElement(
+                        'nav',
+                        { className: 'flex' },
+                        this.tabs.map(function (value) {
+                            return React.createElement(
+                                'div',
+                                { className: 'nav-item nav-link pointer', onClick: function onClick() {
+                                        return _this2.setState({ tab: value, menu: !_this2.state.menu });
+                                    } },
+                                React.createElement(
+                                    'a',
+                                    { className: value === _this2.state.tab ? 'active' : '' },
+                                    value
+                                )
+                            );
+                        })
+                    ),
+                    this.state.screen.width < 1024 && this.state.tab !== 'home' && React.createElement(
+                        'nav',
+                        { className: 'flex pointer', onClick: function onClick() {
+                                return _this2.setState({ menu: !_this2.state.menu });
+                            } },
+                        this.tabs.map(function (value, i) {
+                            var display = _this2.state.menu ? _this2.state.tab : value;
+                            var navLink = React.createElement(
+                                'div',
+                                { className: 'nav-item nav-link', onClick: function onClick() {
+                                        return _this2.setState({ tab: display, menu: !_this2.state.menu });
+                                    } },
+                                React.createElement(
+                                    'a',
+                                    { className: display === _this2.state.tab ? 'active' : '' },
+                                    display
+                                )
+                            );
+                            var navButton = React.createElement(
+                                'div',
+                                { id: 'nav-button', className: 'nav-item' },
+                                _this2.state.menu ? React.createElement('i', { className: 'fas fa-chevron-down' }) : React.createElement('i', { className: 'fas fa-chevron-up' })
+                            );
+                            if (i === 0) {
+                                return [navLink, navButton];
+                            } else if (!_this2.state.menu) {
+                                return navLink;
+                            }
+                        })
                     )
                 ),
                 React.createElement(

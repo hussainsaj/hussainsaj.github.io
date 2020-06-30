@@ -92,10 +92,6 @@ main {
     padding: 10px 0;
 }
 
-.nav-link-mobile {
-    width: 90%;
-}
-
 .nav-link a {
     opacity: 60%;
 }
@@ -153,6 +149,16 @@ main {
 .social_card h3 {
     margin: auto 10px;
     transform: translate(0, -50%);
+}
+
+@media screen and (max-width: 1023px) {
+    nav {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 768px) {
