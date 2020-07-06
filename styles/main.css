@@ -93,7 +93,23 @@ main {
 }
 
 .nav-link a {
+    position: relative;
     opacity: 60%;
+}
+
+.nav-link a:after {
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: black;
+  transition: 0.2s;
+}
+
+.nav-link a:hover:after {
+  width: 90%;
 }
 
 .nav-link .active {
@@ -114,6 +130,14 @@ main {
 
 .entry, .section {
     padding: 10px 0;
+}
+
+.section {
+    width: 100%;
+}
+
+.col {
+    width: 100%;
 }
 
 #contact {
@@ -148,7 +172,7 @@ main {
 
 .social_card h3 {
     margin: auto 10px;
-    transform: translate(0, -50%);
+    transform: translate(0, -20%);
 }
 
 @media screen and (max-width: 1023px) {
@@ -206,6 +230,10 @@ main {
         padding: 10px;
         margin: 10px;
     }
+
+    .col {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -242,6 +270,10 @@ main {
     button:hover {
         background-color: white;
         color: black;
+    }
+
+    .nav-link a:after {
+        background: white;
     }
 }
 

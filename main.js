@@ -516,263 +516,271 @@ var About = function (_React$Component4) {
         value: function render() {
             return React.createElement(
                 'div',
-                { className: 'content' },
+                { className: 'content flex' },
                 React.createElement(
                     'div',
-                    { className: 'section text' },
+                    { 'class': 'col' },
                     React.createElement(
-                        'h2',
-                        null,
-                        'About me'
-                    ),
-                    React.createElement(
-                        'p',
-                        null,
-                        'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { id: 'contact', className: 'section flex' },
-                    React.createElement(
-                        'p',
-                        null,
+                        'div',
+                        { className: 'section text' },
                         React.createElement(
-                            'a',
-                            { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
-                            'LinkedIn'
+                            'h2',
+                            null,
+                            'About me'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
                         )
                     ),
                     React.createElement(
-                        'p',
-                        null,
+                        'div',
+                        { id: 'contact', className: 'section flex' },
                         React.createElement(
-                            'a',
-                            { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
-                            'hussain-sajid@outlook.com'
-                        )
-                    )
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'div',
-                    { id: 'skills', className: 'section' },
-                    React.createElement(
-                        'h2',
-                        null,
-                        'Key skills'
-                    ),
-                    React.createElement(
-                        'ul',
-                        { className: 'flex' },
-                        React.createElement(
-                            'li',
-                            null,
-                            'Scrum'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'Agile Methodologies'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'Responsive Web Design'
-                        )
-                    ),
-                    React.createElement(
-                        'ul',
-                        { className: 'flex' },
-                        React.createElement(
-                            'li',
-                            null,
-                            'HTML'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'CSS'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'JavaScript'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'React'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'jQuery'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'SQL server'
-                        ),
-                        React.createElement(
-                            'li',
-                            null,
-                            'Git'
-                        )
-                    )
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'div',
-                    { className: 'section' },
-                    React.createElement(
-                        'h2',
-                        null,
-                        'Employment history'
-                    ),
-                    React.createElement(
-                        'table',
-                        null,
-                        React.createElement(
-                            'tr',
+                            'p',
                             null,
                             React.createElement(
-                                'td',
-                                null,
-                                '05/2020-Present'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Qwest Services'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Senior Digital Development Analyst'
+                                'a',
+                                { className: 'text', href: 'https://www.linkedin.com/in/hussainsaj/', rel: 'noopener', target: '_blank' },
+                                'LinkedIn'
                             )
                         ),
                         React.createElement(
-                            'tr',
+                            'p',
                             null,
                             React.createElement(
-                                'td',
-                                null,
-                                '09/2018-05/2020'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Qwest Services'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Web developer'
+                                'a',
+                                { className: 'text', href: 'mailto:hussain-sajid@outlook.com' },
+                                'hussain-sajid@outlook.com'
                             )
                         )
-                    )
-                ),
-                React.createElement('hr', null),
-                React.createElement(
-                    'div',
-                    { className: 'section' },
-                    React.createElement(
-                        'h2',
-                        null,
-                        'Recognitions'
                     ),
+                    React.createElement('hr', null),
                     React.createElement(
-                        'table',
-                        null,
+                        'div',
+                        { id: 'skills', className: 'section' },
                         React.createElement(
-                            'tr',
+                            'h2',
                             null,
+                            'Key skills'
+                        ),
+                        React.createElement(
+                            'ul',
+                            { className: 'flex' },
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                '2019'
+                                'Scrum'
                             ),
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                'DXA\'19'
+                                'Agile Methodologies'
                             ),
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                'Best Digital Change & Transformation - Shortlisted'
+                                'Responsive Web Design'
                             )
                         ),
                         React.createElement(
-                            'tr',
-                            null,
+                            'ul',
+                            { className: 'flex' },
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                '2018'
+                                'HTML'
                             ),
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                'Qwest Services'
+                                'CSS'
                             ),
                             React.createElement(
-                                'td',
+                                'li',
                                 null,
-                                'Best team'
+                                'JavaScript'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'React'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'jQuery'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'SQL server'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Git'
                             )
                         )
-                    )
+                    ),
+                    React.createElement('hr', null)
                 ),
-                React.createElement('hr', null),
                 React.createElement(
                     'div',
-                    { className: 'section' },
+                    { 'class': 'col' },
                     React.createElement(
-                        'h2',
-                        null,
-                        'Education history'
-                    ),
-                    React.createElement(
-                        'table',
-                        null,
+                        'div',
+                        { className: 'section' },
                         React.createElement(
-                            'tr',
+                            'h2',
                             null,
-                            React.createElement(
-                                'td',
-                                null,
-                                '09/2017-08/2018'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Udacity'
-                            ),
-                            React.createElement(
-                                'td',
-                                null,
-                                'Front-end Web Developer Nanodegree Program'
-                            )
+                            'Employment history'
                         ),
                         React.createElement(
-                            'tr',
+                            'table',
                             null,
                             React.createElement(
-                                'td',
+                                'tr',
                                 null,
-                                '09/2015-06/2018'
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '05/2020-Present'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Qwest Services'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Senior Digital Development Analyst'
+                                )
                             ),
                             React.createElement(
-                                'td',
+                                'tr',
                                 null,
-                                'City of Stoke-on-Trent Sixth Form Collecge'
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '09/2018-05/2020'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Qwest Services'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Web developer'
+                                )
+                            )
+                        )
+                    ),
+                    React.createElement('hr', null),
+                    React.createElement(
+                        'div',
+                        { className: 'section' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Recognitions'
+                        ),
+                        React.createElement(
+                            'table',
+                            null,
+                            React.createElement(
+                                'tr',
+                                null,
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '2019'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'DXA\'19'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Best Digital Change & Transformation - Shortlisted'
+                                )
                             ),
                             React.createElement(
-                                'td',
+                                'tr',
                                 null,
-                                'A-level Physics/Maths/Computer Science'
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '2018'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Qwest Services'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Best team'
+                                )
+                            )
+                        )
+                    ),
+                    React.createElement('hr', null),
+                    React.createElement(
+                        'div',
+                        { className: 'section' },
+                        React.createElement(
+                            'h2',
+                            null,
+                            'Education history'
+                        ),
+                        React.createElement(
+                            'table',
+                            null,
+                            React.createElement(
+                                'tr',
+                                null,
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '09/2017-08/2018'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Udacity'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Front-end Web Developer Nanodegree Program'
+                                )
+                            ),
+                            React.createElement(
+                                'tr',
+                                null,
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '09/2015-06/2018'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'City of Stoke-on-Trent Sixth Form Collecge'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'A-level Physics/Maths/Computer Science'
+                                )
                             )
                         )
                     )
