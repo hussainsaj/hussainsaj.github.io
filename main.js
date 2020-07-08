@@ -209,7 +209,7 @@ var Blog = function (_React$Component2) {
             fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@joyful_inchworm_butterfly_535").then(function (res) {
                 return res.json();
             }).then(function (result) {
-                result.items = result.items.slice(0, 5);
+                result.items = result.items.slice(0, 7);
                 for (var i = 0; i < result.items.length; i++) {
                     result.items[i].date = _this4.props.formatDateTime(result.items[i].pubDate);
                     result.items[i].content = _this4.props.toText(result.items[i].content);
@@ -370,7 +370,7 @@ var Projects = function (_React$Component3) {
                 result.sort(function (a, b) {
                     return new Date(b.updated_at) - new Date(a.updated_at);
                 });
-                result = result.slice(0, 5);
+                result = result.slice(0, 7);
                 for (var i = 0; i < result.length; i++) {
                     result[i].updated_at_formatted = _this6.props.formatDateTime(result[i].updated_at);
                     if (result[i].description.length > 160) {
@@ -556,7 +556,11 @@ var About = function (_React$Component4) {
                             )
                         )
                     ),
-                    React.createElement('hr', null),
+                    React.createElement('hr', null)
+                ),
+                React.createElement(
+                    'div',
+                    { 'class': 'col' },
                     React.createElement(
                         'div',
                         { id: 'skills', className: 'section' },
@@ -624,11 +628,7 @@ var About = function (_React$Component4) {
                             )
                         )
                     ),
-                    React.createElement('hr', null)
-                ),
-                React.createElement(
-                    'div',
-                    { 'class': 'col' },
+                    React.createElement('hr', null),
                     React.createElement(
                         'div',
                         { className: 'section' },

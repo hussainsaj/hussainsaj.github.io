@@ -131,7 +131,7 @@ class Blog extends React.Component {
         .then(res => res.json())
         .then(
             (result) => {
-                result.items = result.items.slice(0,5);
+                result.items = result.items.slice(0,7);
                 for (let i=0; i<result.items.length; i++) {
                     result.items[i].date = this.props.formatDateTime(result.items[i].pubDate)
                     result.items[i].content = this.props.toText(result.items[i].content)
@@ -216,7 +216,7 @@ class Projects extends React.Component {
                 result.sort((a,b) => {
                     return new Date(b.updated_at) - new Date(a.updated_at)
                 })
-                result = result.slice(0, 5);
+                result = result.slice(0, 7);
                 for (let i=0; i<result.length; i++) {
                     result[i].updated_at_formatted = this.props.formatDateTime(result[i].updated_at)
                     if (result[i].description.length > 160) {
@@ -295,6 +295,8 @@ class About extends React.Component {
                         <p><a className='text' href='mailto:hussain-sajid@outlook.com'>hussain-sajid@outlook.com</a></p>
                     </div>
                     <hr/>
+                </div>
+                <div class='col'>
                     <div id='skills' className='section'>
                         <h2>Key skills</h2>
                         <ul className='flex'>
@@ -313,8 +315,6 @@ class About extends React.Component {
                         </ul>
                     </div>
                     <hr/>
-                </div>
-                <div class='col'>
                     <div className='section'>
                         <h2>Employment history</h2>
                         <table>
