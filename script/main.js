@@ -243,7 +243,7 @@ class Projects extends React.Component {
                 {this.state.github.status && this.state.github.availability ? <div className='desktop-flex'>
                     {this.state.github.projects.map(project => {
                         return <div className='entry text'>
-                            <h2><a className='text' href={project.html_url} rel='noopener' target='_blank'>{project.name}</a></h2>
+                            <h2><a className='text' href={`/${project.name}`} rel='noopener' target='_blank'>{project.name}</a></h2>
                             <p>{project.description}</p>
                             <p>{project.updated_at_formatted}</p>
                         </div>
