@@ -407,7 +407,7 @@ var Projects = function (_React$Component3) {
                                 null,
                                 React.createElement(
                                     'a',
-                                    { className: 'text', href: '/' + project.name, rel: 'noopener', target: '_blank' },
+                                    { className: 'text', href: '/' + project.name },
                                     project.name
                                 )
                             ),

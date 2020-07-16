@@ -97,21 +97,6 @@ main {
     opacity: 60%;
 }
 
-.nav-link a:after {
-  content: '';
-  height: 1px;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0%;
-  background: black;
-  transition: 0.2s;
-}
-
-.nav-link a:hover:after {
-  width: 90%;
-}
-
 .nav-link .active {
     opacity: 100%;
 }
@@ -233,6 +218,21 @@ main {
 
     .col {
         width: 50%;
+    }
+
+    .nav-link a:after {
+      content: '';
+      height: 1px;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      background: black;
+      transition: 0.2s;
+    }
+    
+    .nav-link a:hover:after {
+      width: 90%;
     }
 }
 
