@@ -202,7 +202,7 @@ class Projects extends React.Component {
             github: {
                 status: false,
                 availability: true,
-                projects: []
+                projects: {}
             }
         };
         this.updateProjects = this.updateProjects.bind(this);
@@ -216,18 +216,25 @@ class Projects extends React.Component {
                 result.sort((a,b) => {
                     return new Date(b.updated_at) - new Date(a.updated_at)
                 })
-                result = result.slice(0, 7);
+                let projects = {
+                    mockups: [],
+                    udacity: [],
+                    others: []
+                }
                 for (let i=0; i<result.length; i++) {
                     result[i].updated_at_formatted = this.props.formatDateTime(result[i].updated_at)
                     if (result[i].description.length > 160) {
                         result[i].description = result[i].description.slice(0,150) + '...'
                     }
+                    if(result[i].name.split('-')[0] === 'mockup') {projects['mockups'].push(result[i])}
+                    else if(result[i].name.split('-')[0] === 'udacity') {projects['udacity'].push(result[i])}
+                    else if(result[i].name !== 'hussainsaj.github.io') {projects['others'].push(result[i])}
                 }
 
-                this.setState({github:{status: true, availability: true, author: result[0].owner, projects: result}})
+                this.setState({github:{status: true, availability: true, author: result[0].owner, projects: projects}})
             },
             (error) => {
-                this.setState({github:{status: true, availability: false, projects: []}})
+                this.setState({github:{status: true, availability: false, projects: {}}})
                 console.error(error)
             }
         )
@@ -238,17 +245,27 @@ class Projects extends React.Component {
     }
 
     render() {
+        const github = this.state.github.projects
         return (
             <div className='content'>
-                {this.state.github.status && this.state.github.availability ? <div className='desktop-flex'>
-                    {this.state.github.projects.map(project => {
-                        return <div className='entry text'>
-                            <h2><a className='text' href={`/${project.name}`}>{project.name}</a></h2>
-                            <p>{project.description}</p>
-                            <p>{project.updated_at_formatted}</p>
-                        </div>
+                {this.state.github.status && this.state.github.availability ? <div>
+                    {Object.keys(github).map(function(key) {
+                        if(github[key].length !== 0) {
+                            return <div className='desktop-flex'>
+                                <h2 className='text'>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
+                                {github[key].map(project => {
+                                    return <div className='entry text'>
+                                        <h2><a className='text' href={`/${project.name}`}>{project.name}</a></h2>
+                                        <p>{project.description}</p>
+                                        <p>{project.updated_at_formatted}</p>
+                                    </div>
+                                })}
+                                <hr/>
+                            </div>
+                        }
                     })}
-                    <hr/>
+                    {/* On phone, indent project entries like key skills*/}
+                    {/* Rename repos to start with udacity*/}
                     <div className='social'>
                         <h2>More on GitHub</h2>
                         <div className='entry social_card flex'>

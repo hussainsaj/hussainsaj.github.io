@@ -352,7 +352,7 @@ var Projects = function (_React$Component3) {
             github: {
                 status: false,
                 availability: true,
-                projects: []
+                projects: {}
             }
         };
         _this5.updateProjects = _this5.updateProjects.bind(_this5);
@@ -370,17 +370,28 @@ var Projects = function (_React$Component3) {
                 result.sort(function (a, b) {
                     return new Date(b.updated_at) - new Date(a.updated_at);
                 });
-                result = result.slice(0, 7);
+                var projects = {
+                    mockups: [],
+                    udacity: [],
+                    others: []
+                };
                 for (var i = 0; i < result.length; i++) {
                     result[i].updated_at_formatted = _this6.props.formatDateTime(result[i].updated_at);
                     if (result[i].description.length > 160) {
                         result[i].description = result[i].description.slice(0, 150) + '...';
                     }
+                    if (result[i].name.split('-')[0] === 'mockup') {
+                        projects['mockups'].push(result[i]);
+                    } else if (result[i].name.split('-')[0] === 'udacity') {
+                        projects['udacity'].push(result[i]);
+                    } else if (result[i].name !== 'hussainsaj.github.io') {
+                        projects['others'].push(result[i]);
+                    }
                 }
 
-                _this6.setState({ github: { status: true, availability: true, author: result[0].owner, projects: result } });
+                _this6.setState({ github: { status: true, availability: true, author: result[0].owner, projects: projects } });
             }, function (error) {
-                _this6.setState({ github: { status: true, availability: false, projects: [] } });
+                _this6.setState({ github: { status: true, availability: false, projects: {} } });
                 console.error(error);
             });
         }
@@ -392,38 +403,52 @@ var Projects = function (_React$Component3) {
     }, {
         key: 'render',
         value: function render() {
+            var github = this.state.github.projects;
             return React.createElement(
                 'div',
                 { className: 'content' },
                 this.state.github.status && this.state.github.availability ? React.createElement(
                     'div',
-                    { className: 'desktop-flex' },
-                    this.state.github.projects.map(function (project) {
-                        return React.createElement(
-                            'div',
-                            { className: 'entry text' },
-                            React.createElement(
-                                'h2',
-                                null,
+                    null,
+                    Object.keys(github).map(function (key) {
+                        if (github[key].length !== 0) {
+                            return React.createElement(
+                                'div',
+                                { className: 'desktop-flex' },
                                 React.createElement(
-                                    'a',
-                                    { className: 'text', href: '/' + project.name },
-                                    project.name
-                                )
-                            ),
-                            React.createElement(
-                                'p',
-                                null,
-                                project.description
-                            ),
-                            React.createElement(
-                                'p',
-                                null,
-                                project.updated_at_formatted
-                            )
-                        );
+                                    'h2',
+                                    { className: 'text' },
+                                    key.charAt(0).toUpperCase() + key.slice(1)
+                                ),
+                                github[key].map(function (project) {
+                                    return React.createElement(
+                                        'div',
+                                        { className: 'entry text' },
+                                        React.createElement(
+                                            'h2',
+                                            null,
+                                            React.createElement(
+                                                'a',
+                                                { className: 'text', href: '/' + project.name },
+                                                project.name
+                                            )
+                                        ),
+                                        React.createElement(
+                                            'p',
+                                            null,
+                                            project.description
+                                        ),
+                                        React.createElement(
+                                            'p',
+                                            null,
+                                            project.updated_at_formatted
+                                        )
+                                    );
+                                }),
+                                React.createElement('hr', null)
+                            );
+                        }
                     }),
-                    React.createElement('hr', null),
                     React.createElement(
                         'div',
                         { className: 'social' },
