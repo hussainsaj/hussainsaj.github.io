@@ -125,7 +125,7 @@ class Blog extends React.Component {
         };
         this.updateBlog = this.updateBlog.bind(this);
     }
-
+    
     updateBlog() {
         fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@joyful_inchworm_butterfly_535")
         .then(res => res.json())
@@ -305,7 +305,10 @@ class About extends React.Component {
                 <div class='col'>
                     <div className='section text'>
                         <h2>About me</h2>
-                        <p>I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
+                        <p>Hey, the name's Hussain and I'm an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over several years of professional and personal experience, I’m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.</p>
+                        <p>In my free time, I usually create small fun projects to keep my skills sharp and experiment with new technologies which may help me keep up to date with technologies. They are available here or on <a className='text' href='https://github.com/hussainsaj' rel='noopener' target='_blank'>my GitHub profile</a>.</p>
+                        <p>Outside tech, I like to exercise, hike, travel and try anything new which I may or may not like.</p>
+                        <p>Also, I've got a <a className='text' href='https://medium.com/@joyful_inchworm_butterfly_535' rel='noopener' target='_blank'>blog on Medium</a>. On which, I tend to write about anything related to tech or productivity in hopes that it might benefit someone else.</p>
                     </div>
                     <div id='contact' className='section flex'>
                         <p><a className='text' href='https://www.linkedin.com/in/hussainsaj/' rel='noopener' target='_blank'>LinkedIn</a></p>

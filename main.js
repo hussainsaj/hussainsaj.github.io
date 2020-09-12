@@ -556,7 +556,34 @@ var About = function (_React$Component4) {
                         React.createElement(
                             'p',
                             null,
-                            'I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over a year of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                            'Hey, the name\'s Hussain and I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over several years of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'In my free time, I usually create small fun projects to keep my skills sharp and experiment with new technologies which may help me keep up to date with technologies. They are available here or on ',
+                            React.createElement(
+                                'a',
+                                { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
+                                'my GitHub profile'
+                            ),
+                            '.'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'Outside tech, I like to exercise, hike, travel and try anything new which I may or may not like.'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'Also, I\'ve got a ',
+                            React.createElement(
+                                'a',
+                                { className: 'text', href: 'https://medium.com/@joyful_inchworm_butterfly_535', rel: 'noopener', target: '_blank' },
+                                'blog on Medium'
+                            ),
+                            '. On which, I tend to write about anything related to tech or productivity in hopes that it might benefit someone else.'
                         )
                     ),
                     React.createElement(
