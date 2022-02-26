@@ -2,8 +2,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //tab: 'home',
-            tab: 'projects',
+            tab: 'home',
             menu: true,
             screen: {
                 width: 0,

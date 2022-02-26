@@ -15,8 +15,7 @@ var App = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            //tab: 'home',
-            tab: 'projects',
+            tab: 'home',
             menu: true,
             screen: {
                 width: 0,
