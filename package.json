@@ -19,7 +19,9 @@
   "homepage": "https://github.com/hussainsaj/hussainsaj.github.io#readme",
   "dependencies": {
     "all": "0.0.0",
-    "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

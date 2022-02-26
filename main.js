@@ -15,7 +15,8 @@ var App = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            tab: 'home',
+            //tab: 'home',
+            tab: 'projects',
             menu: true,
             screen: {
                 width: 0,
@@ -370,14 +371,19 @@ var Projects = function (_React$Component3) {
                 result.sort(function (a, b) {
                     return new Date(b.updated_at) - new Date(a.updated_at);
                 });
+
                 var projects = {
                     mockups: [],
                     udacity: [],
                     others: []
                 };
+
                 for (var i = 0; i < result.length; i++) {
+
                     result[i].updated_at_formatted = _this6.props.formatDateTime(result[i].updated_at);
-                    if (result[i].description.length > 160) {
+                    if (result[i].description === null) {
+                        result[i].description = '';
+                    } else if (result[i].description.length > 160) {
                         result[i].description = result[i].description.slice(0, 150) + '...';
                     }
                     if (result[i].name.split('-')[0] === 'mockup') {

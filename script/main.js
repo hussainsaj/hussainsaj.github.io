@@ -2,7 +2,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tab: 'home',
+            //tab: 'home',
+            tab: 'projects',
             menu: true,
             screen: {
                 width: 0,
@@ -216,14 +217,19 @@ class Projects extends React.Component {
                 result.sort((a,b) => {
                     return new Date(b.updated_at) - new Date(a.updated_at)
                 })
+
                 let projects = {
                     mockups: [],
                     udacity: [],
                     others: []
                 }
+                
                 for (let i=0; i<result.length; i++) {
+                    
                     result[i].updated_at_formatted = this.props.formatDateTime(result[i].updated_at)
-                    if (result[i].description.length > 160) {
+                    if (result[i].description === null) {
+                        result[i].description = ''
+                    } else if (result[i].description.length > 160) {
                         result[i].description = result[i].description.slice(0,150) + '...'
                     }
                     if(result[i].name.split('-')[0] === 'mockup') {projects['mockups'].push(result[i])}
