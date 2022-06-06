@@ -95,7 +95,7 @@ var Projects = function (_React$Component) {
                                     return React.createElement(
                                         'div',
                                         { className: 'entry text' },
-                                        React.createElement(
+                                        key === 'mockups' ? React.createElement(
                                             'h2',
                                             null,
                                             React.createElement(
@@ -103,6 +103,10 @@ var Projects = function (_React$Component) {
                                                 { className: 'text', href: '/' + project.name },
                                                 project.name
                                             )
+                                        ) : React.createElement(
+                                            'h2',
+                                            null,
+                                            project.name
                                         ),
                                         React.createElement(
                                             'p',
@@ -113,6 +117,11 @@ var Projects = function (_React$Component) {
                                             'p',
                                             null,
                                             project.updated_at_formatted
+                                        ),
+                                        React.createElement(
+                                            'a',
+                                            { className: 'text', href: 'https://github.com/hussainsaj/' + project.name },
+                                            'View in GitHub'
                                         )
                                     );
                                 }),

@@ -1,5 +1,5 @@
 import Blog from '/blog.js'
-import Projects from '/project.js'
+import Projects from '/projects.js'
 import About from '/about.js'
 
 class App extends React.Component {

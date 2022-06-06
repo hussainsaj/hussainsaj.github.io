@@ -63,17 +63,19 @@ class Projects extends React.Component {
                                 <h2 className='text'>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
                                 {github[key].map(project => {
                                     return <div className='entry text'>
-                                        <h2><a className='text' href={`/${project.name}`}>{project.name}</a></h2>
+                                        {key === 'mockups' ?
+                                            <h2><a className='text' href={`/${project.name}`}>{project.name}</a></h2> : 
+                                            <h2>{project.name}</h2>
+                                        }
                                         <p>{project.description}</p>
                                         <p>{project.updated_at_formatted}</p>
+                                        <a className='text' href={`https://github.com/hussainsaj/${project.name}`}>View in GitHub</a>
                                     </div>
                                 })}
                                 <hr/>
                             </div>
                         }
                     })}
-                    {/* On phone, indent project entries like key skills*/}
-                    {/* Rename repos to start with udacity*/}
                     <div className='social'>
                         <h2>More on GitHub</h2>
                         <div className='entry social_card flex'>
