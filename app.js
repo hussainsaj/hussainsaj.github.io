@@ -6,7 +6,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import Blog from '/blog.js';
 import Projects from '/projects.js';
 import About from '/about.js';
 
@@ -26,7 +25,7 @@ var App = function (_React$Component) {
                 height: 0
             }
         };
-        _this.tabs = ['blog', 'projects', 'about'];
+        _this.tabs = ['projects', 'about'];
         _this.formatDateTime = _this.formatDateTime.bind(_this);
         _this.toText = _this.toText.bind(_this);
         _this.updateWindowDimensions = _this.updateWindowDimensions.bind(_this);
@@ -174,7 +173,6 @@ var App = function (_React$Component) {
                             )
                         )
                     ),
-                    this.state.tab === 'blog' && React.createElement(Blog, { formatDateTime: this.formatDateTime, toText: this.toText }),
                     this.state.tab === 'projects' && React.createElement(Projects, { formatDateTime: this.formatDateTime }),
                     this.state.tab === 'about' && React.createElement(About, null)
                 )

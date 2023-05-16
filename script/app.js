@@ -1,4 +1,3 @@
-import Blog from '/blog.js'
 import Projects from '/projects.js'
 import About from '/about.js'
 
@@ -13,7 +12,7 @@ class App extends React.Component {
                 height: 0
             }
         };
-        this.tabs = ['blog','projects','about']
+        this.tabs = ['projects','about']
         this.formatDateTime = this.formatDateTime.bind(this);
         this.toText = this.toText.bind(this);
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -107,7 +106,6 @@ class App extends React.Component {
                             <button className='transision pointer' onClick={() => this.setState({tab: 'about'})}><h3>Enter</h3></button>
                         </div>
                     </div>}
-                    {this.state.tab === 'blog' && <Blog formatDateTime={this.formatDateTime} toText={this.toText}/>}
                     {this.state.tab === 'projects' && <Projects formatDateTime={this.formatDateTime}/>}
                     {this.state.tab === 'about' && <About/>}
                 </main>

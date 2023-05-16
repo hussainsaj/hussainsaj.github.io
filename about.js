@@ -35,12 +35,17 @@ var About = function (_React$Component) {
                         React.createElement(
                             'p',
                             null,
-                            'Hey, the name\'s Hussain and I\'m an ambitious developer who would like to work as part of a team of like-minded developers in an always challenging environment. With over several years of professional and personal experience, I\u2019m always looking for ways to challenge myself and learn new skills. A strong communicator with the ability to share ideas with the team and client.'
+                            'Hello! I\'m Hussain, a passionate and committed developer with over 4 years of professional experience. I thrive on challenge and am always on the lookout for opportunities to further develop my skills and push my limits. I value strong communication and believe in the power of sharing ideas and collaborating with my team and clients.'
                         ),
                         React.createElement(
                             'p',
                             null,
-                            'In my free time, I usually create small fun projects to keep my skills sharp and experiment with new technologies which may help me keep up to date with technologies. They are available here or on ',
+                            'When I\'m not coding or experimenting with new technologies, you\'ll likely find me embracing my diverse range of interests. I have a love for travel and enjoy the thrill of discovering new places and cultures. I\'m also a driving enthusiast, a regular at the gym, and a keen hiker. I appreciate the excitement of attending events, with motorsports and music being particular favorites.'
+                        ),
+                        React.createElement(
+                            'p',
+                            null,
+                            'To stay on top of trends and continue learning, I often undertake small, innovative projects in my free time. These projects allow me to sharpen my skills and keep my technical knowledge current. You can check out some of these projects here or on ',
                             React.createElement(
                                 'a',
                                 { className: 'text', href: 'https://github.com/hussainsaj', rel: 'noopener', target: '_blank' },
@@ -51,18 +56,7 @@ var About = function (_React$Component) {
                         React.createElement(
                             'p',
                             null,
-                            'Outside tech, I like to exercise, hike, travel and try anything new which I may or may not like.'
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            'Also, I\'ve got a ',
-                            React.createElement(
-                                'a',
-                                { className: 'text', href: 'https://medium.com/@joyful_inchworm_butterfly_535', rel: 'noopener', target: '_blank' },
-                                'blog on Medium'
-                            ),
-                            '. On which, I tend to write about anything related to tech or productivity in hopes that it might benefit someone else.'
+                            'Whether it\'s in tech or in my personal pursuits, I\'m always ready to try new things, embrace different experiences, and continue learning along the way.'
                         )
                     ),
                     React.createElement(
@@ -106,25 +100,6 @@ var About = function (_React$Component) {
                             React.createElement(
                                 'li',
                                 null,
-                                'Scrum'
-                            ),
-                            React.createElement(
-                                'li',
-                                null,
-                                'Agile Methodologies'
-                            ),
-                            React.createElement(
-                                'li',
-                                null,
-                                'Responsive Web Design'
-                            )
-                        ),
-                        React.createElement(
-                            'ul',
-                            { className: 'flex' },
-                            React.createElement(
-                                'li',
-                                null,
                                 'HTML'
                             ),
                             React.createElement(
@@ -150,12 +125,81 @@ var About = function (_React$Component) {
                             React.createElement(
                                 'li',
                                 null,
-                                'SQL server'
+                                'SQL Server'
                             ),
                             React.createElement(
                                 'li',
                                 null,
                                 'Git'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'AWS'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Lambda'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'API Endpoint'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'S3'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Python'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'SOAP API'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'REST API'
+                            )
+                        ),
+                        React.createElement(
+                            'ul',
+                            { className: 'flex' },
+                            React.createElement(
+                                'li',
+                                null,
+                                'Scrum'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Agile'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Responsive Web Design'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Problem-solving'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Team Collaboration'
+                            ),
+                            React.createElement(
+                                'li',
+                                null,
+                                'Continuous Learning'
                             )
                         )
                     ),
@@ -187,7 +231,7 @@ var About = function (_React$Component) {
                                 React.createElement(
                                     'td',
                                     null,
-                                    'Senior Digital Development Analyst'
+                                    'Senior Digital Development Analyst (Web development)'
                                 )
                             ),
                             React.createElement(
