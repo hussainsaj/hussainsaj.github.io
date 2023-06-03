@@ -162,6 +162,10 @@ main {
     transform: translate(0, -20%);
 }
 
+.project-subtext {
+    width: 80%;
+}
+
 @media screen and (max-width: 1023px) {
     nav {
         width: 100%;
