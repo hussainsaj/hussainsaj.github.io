@@ -28,8 +28,8 @@ var Projects = function (_React$Component) {
                 description: "Updated the existing FPN system to support the new regulations, request payments online, automatically escalate cases if they've not been paid for, automatically close cases once the fine is paid and calculating correct amount to pay based on the issue date and FPN tier."
             }]
         },{
-            name: 'Senior digital development analyst (web development) - Qwest services',
-            subtext: "Some of the projects that I've worked on as a Senior digital development analyst (web development).",
+            name: 'Senior digital development analyst - Qwest services',
+            subtext: "Some of the projects that I've worked on as a Senior digital development analyst.",
             projects: [{
                 name: 'Personalized User Landing Page',
                 description: 'Created a personalized landing page for logged-in users. The page displays localized information and features a full redesign to enhance user experience.'
