@@ -15,6 +15,19 @@ var Projects = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
 
         _this.categories = [{
+            name: 'Junior web developer',
+            subtext: "Some of the projects that I've worked on as a Junior web developer.",
+            projects: [{
+                name: 'Modular polling',
+                description: 'A scheduled job system designed to monitor and manage payment, and case statuses. It runs on customizable intervals and days, automatically updating the database, sending notifications for status changes, and handling case closures, reminders for payments, and cancellations based on real-time data.'
+            }, {
+                name: 'Recruitment and pay',
+                description: 'Aside an usual enquiry form, added a support for self service to export data and manage permissions. Exported data can be customer by date range, status, organsiations and other filters. Calculations can also be performed on each case on the data such as whether a case is overdue or not.'
+            }, {
+                name: 'FPN',
+                description: 'Updated the existing FPN system to support the new regulations, request payments online, automatically escalate cases if they''ve not been paid for, automatically close cases once the fine is paid and calculating correct amount to pay based on the issue date and FPN tier.'
+            }]
+        },{
             name: 'Senior digital development analyst (web development)',
             subtext: "Some of the projects that I've worked on as a Senior digital development analyst (web development).",
             projects: [{
