@@ -54,9 +54,13 @@ var Projects = function (_React$Component) {
             name: 'Personal projects',
             subtext: "Projects that I've created to solve my real life problems",
             projects: [{
-                name: 'EyeGlide',
-                description: 'A Chrome extension that implements RSI on the webpage.',
-                githubURL: 'https://github.com/hussainsaj/EyeGlide'
+                name: 'hue',
+                description: 'A raspeberry pi app which monitors the smart bulb''s status accross the house and updates to reflect the time of day such as bright cool white in the morning and dimmed warm white at the night.',
+                githubURL: 'https://github.com/hussainsaj/hue'
+            },{
+                name: 'prayer-times',
+                description: 'A raspeberry pi app which fetches the prayer time of a specified region and plays athan on speaker on time.',
+                githubURL: 'https://github.com/hussainsaj/prayer-times'
             }]
         }, {
             name: 'Mockups',
