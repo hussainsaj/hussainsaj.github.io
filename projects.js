@@ -25,7 +25,7 @@ var Projects = function (_React$Component) {
                 description: 'Aside an usual enquiry form, added a support for self service to export data and manage permissions. Exported data can be customer by date range, status, organsiations and other filters. Calculations can also be performed on each case on the data such as whether a case is overdue or not.'
             }, {
                 name: 'FPN',
-                description: 'Updated the existing FPN system to support the new regulations, request payments online, automatically escalate cases if they''ve not been paid for, automatically close cases once the fine is paid and calculating correct amount to pay based on the issue date and FPN tier.'
+                description: "Updated the existing FPN system to support the new regulations, request payments online, automatically escalate cases if they've not been paid for, automatically close cases once the fine is paid and calculating correct amount to pay based on the issue date and FPN tier."
             }]
         },{
             name: 'Senior digital development analyst (web development)',
@@ -55,7 +55,7 @@ var Projects = function (_React$Component) {
             subtext: "Projects that I've created to solve my real life problems",
             projects: [{
                 name: 'hue',
-                description: 'A raspeberry pi app which monitors the smart bulb''s status accross the house and updates to reflect the time of day such as bright cool white in the morning and dimmed warm white at the night.',
+                description: "A raspeberry pi app which monitors the smart bulb's status accross the house and updates to reflect the time of day such as bright cool white in the morning and dimmed warm white at the night.",
                 githubURL: 'https://github.com/hussainsaj/hue'
             },{
                 name: 'prayer-times',
