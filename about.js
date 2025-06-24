@@ -221,7 +221,26 @@ var About = function (_React$Component) {
                                 React.createElement(
                                     'td',
                                     null,
-                                    '05/2020-Present'
+                                    '04/2025-present'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Cheshire West and Chester'
+                                ),
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    'Junior web developer'
+                                )
+                            ),
+                            React.createElement(
+                                'tr',
+                                null,
+                                React.createElement(
+                                    'td',
+                                    null,
+                                    '05/2020-03/2025'
                                 ),
                                 React.createElement(
                                     'td',
@@ -231,7 +250,7 @@ var About = function (_React$Component) {
                                 React.createElement(
                                     'td',
                                     null,
-                                    'Senior Digital Development Analyst (Web development)'
+                                    'Senior Digital Development Analyst'
                                 )
                             ),
                             React.createElement(
