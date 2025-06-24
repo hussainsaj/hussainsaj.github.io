@@ -15,7 +15,7 @@ var Projects = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
 
         _this.categories = [{
-            name: 'Junior web developer',
+            name: 'Junior web developer - Cheshire West and Chester council',
             subtext: "Some of the projects that I've worked on as a Junior web developer.",
             projects: [{
                 name: 'Modular polling',
@@ -28,7 +28,7 @@ var Projects = function (_React$Component) {
                 description: "Updated the existing FPN system to support the new regulations, request payments online, automatically escalate cases if they've not been paid for, automatically close cases once the fine is paid and calculating correct amount to pay based on the issue date and FPN tier."
             }]
         },{
-            name: 'Senior digital development analyst (web development)',
+            name: 'Senior digital development analyst (web development) - Qwest services',
             subtext: "Some of the projects that I've worked on as a Senior digital development analyst (web development).",
             projects: [{
                 name: 'Personalized User Landing Page',
@@ -41,7 +41,7 @@ var Projects = function (_React$Component) {
                 description: 'Updated online forms for waste collection services to integrate with new waste management systems. Adapted the forms twice to keep up with changes in the service.'
             }]
         }, {
-            name: 'Web developer',
+            name: 'Web developer - Qwest services',
             subtext: "Some of the projects that I've worked on as a Web developer.",
             projects: [{
                 name: 'Sports and Events Booking System',
