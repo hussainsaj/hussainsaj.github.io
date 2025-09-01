@@ -15,8 +15,8 @@ var Projects = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
 
         _this.categories = [{
-            name: 'Junior web developer - Cheshire West and Chester council',
-            subtext: "Some of the projects that I've worked on as a Junior web developer.",
+            name: 'Senior digital development analyst - Cheshire West and Chester council',
+            subtext: "Some of the projects that I've worked on as a Senior digital development analyst.",
             projects: [{
                 name: 'Modular polling',
                 description: 'A scheduled job system designed to monitor and manage payment, and case statuses. It runs on customizable intervals and days, automatically updating the database, sending notifications for status changes, and handling case closures, reminders for payments, and cancellations based on real-time data.'
