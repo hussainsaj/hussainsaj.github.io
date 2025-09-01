@@ -231,7 +231,7 @@ var About = function (_React$Component) {
                                 React.createElement(
                                     'td',
                                     null,
-                                    'Junior web developer'
+                                    'Senior digital development analyst'
                                 )
                             ),
                             React.createElement(
